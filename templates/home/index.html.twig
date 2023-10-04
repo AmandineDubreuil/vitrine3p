@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Organisme de formation
+{% endblock %}
+{% block stylesheets %}
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+	{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+	<!-- Font Awesome -->
+	<link
+	rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
+ 
+	{{ encore_entry_link_tags('app') }}
+	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/homeStyle.css')}}">
+
+{% endblock %}
+
+
+{% block body %}
+
+	<section class="entete">
+		<div class="enteteImg">
+			<div>
+				<h1 id="h1Accueil">Organisme de formation</h1>
+				<h2>Nous sommes un organisme de formation</h2>
+			</div>
+		</div>
+
+	</section>
+	<section class="descriptif">
+		<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima facere cumque veniam quisquam eligendi, est molestiae possimus voluptate aliquam dolores rem corrupti modi aut delectus nam necessitatibus, et dignissimos commodi?</p>
+		<div class="dfRight">
+			<a class="btnOk" href="#">Découvrir nos formations</a>
+		</div>
+		<div class="paragraphe">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, vero suscipit. Labore rerum hic porro quam dicta, molestias, nesciunt dignissimos, unde delectus quos nostrum at saepe iure tenetur eaque eligendi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quaerat itaque odio esse cupiditate excepturi laboriosam vel, repellendus culpa nisi commodi sit earum voluptate consectetur cum iure mollitia quia! Esse?
+			</p>
+			<div class="image">
+				<img src="{{asset('./assets/img/trousse.jpg')}}" alt="valise 1er secours"></div>
+		</div>
+		<div class="paragraphe">
+			<div class="image">
+				<img src="{{asset('./assets/img/santeMentale.jpg')}}" alt="santé mentale"></div>
+		
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, vero suscipit. Labore rerum hic porro quam dicta, molestias, nesciunt dignissimos, unde delectus quos nostrum at saepe iure tenetur eaque eligendi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quaerat itaque odio esse cupiditate excepturi laboriosam vel, repellendus culpa nisi commodi sit earum voluptate consectetur cum iure mollitia quia! Esse?
+		</p>
+</div>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti voluptas nulla incidunt, nostrum non facere quod! Tempore expedita, dolore alias fugiat minima, itaque aperiam magnam distinctio officiis sed blanditiis reprehenderit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsa rerum, rem veritatis molestias numquam reiciendis debitis quasi deleniti repellat enim facere, repudiandae voluptas omnis nulla distinctio porro, laborum quia?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti voluptas nulla incidunt, nostrum non facere quod! Tempore expedita, dolore alias fugiat minima, itaque aperiam magnam distinctio officiis sed blanditiis reprehenderit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsa rerum, rem veritatis molestias numquam reiciendis debitis quasi deleniti repellat enim facere, repudiandae voluptas omnis nulla distinctio porro, laborum quia?</p>
+	</section>
+    <section class="formations">
+    <h2>Nos formations</h2>
+    <div>les card des 3 dernières formations enregistrées</div>
+    </section>
+
+{% endblock %}

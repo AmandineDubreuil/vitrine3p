@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "Lato";
+    src: url(../font/Lato-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: "Lato-bold";
+    src: url(../font/Lato-Bold.ttf);
+  }
+  @font-face {
+    font-family: "Lato-black";
+    src: url(../font/Lato-Black.ttf);
+  }
+
+  :root {
+    --color-one: #c49082;
+  
+    --color-two: #c1baa2;
+  
+    --color-three: #e5dacf;
+  
+    --color-light: #fff4ec;
+  
+    --color-four: #95999b;
+  
+    --color-five: #fff;
+  
+    --color-six: #000;
+  }
+
+/* INITIALISATION */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato',Arial, Helvetica, sans-serif;
+    color: var(--color-six);
+    text-decoration: none;
+    list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+/*placement df*/
+.dfRight {
+  display: flex;
+  justify-content: flex-end;
+ }
+
+ /* sections div*/
+section {
+ width: 100vw;
+  padding: 1rem 2rem ;
+
+}
+
+
+/* paragraphes */
+p {
+  padding-bottom: 1rem;
+}
+
+/* TITRES */
+
+h1{
+font-family: 'Lato-bold',Arial, Helvetica, sans-serif;
+margin-right: 1rem;
+}
+h2{
+  margin-right: 1rem;
+}
+
+/* BOUTONS */
+.btnAdd,
+.btnOk,
+.btnEdit,
+.btnDelete,
+.btnBack {
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 100;
+  padding: 0.7rem;
+  width: fit-content;
+  min-width: 5rem;
+  /* height: 2rem; */
+  margin: 1rem;
+}
+.btnAdd {
+  background-color: var(--color-two);
+  color: var(--color-light);
+}
+.btnOk {
+  background-color: var(--color-one);
+  color: var(--color-light);
+}
+
+.btnEdit {
+  background-color: var(--color-three);
+  color: var(--color-one);
+}
+
+.btnDelete {
+  background-color: var(--color-four);
+}
+
+.btnRetour {
+  background-color: var(--color-five);
+  border: 1px solid gray;
+}
+
+/*  Icones */
+
+.iconeAjout,
+.iconeModifier,
+.iconeSupprimer {
+  padding: 0.3rem;
+}
+.iconeAjout i,
+.iconeModifier i,
+.iconeSupprimer i {
+  font-size: 1.2rem;
+}
+
+.iconeAjout {
+  color: var(--color-three);
+}
+.iconeOk {
+  background-color: var(--color-three);
+  color: var(--color-light);
+  border-radius: 5px;
+}
+.iconeModifier {
+  color: var(--color-two);
+}
+.iconeSupprimer {
+  color: var(--color-four);
+  background-color: #ffffff00;
+}
+
+
+/* IMAGES */
+
+.image img {
+  border-radius: 100px;
+}

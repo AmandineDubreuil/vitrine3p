@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AaaCharteGraphiqueController!
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+	{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+	<!-- Font Awesome -->
+	<link
+	rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
+    
+	{{ encore_entry_link_tags('app') }}
+
+	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+
+{% endblock %}
+
+{% block body %}
+
+	&nbsp;
+<section>
+	<h1>Ceci est un H1</h1>
+	<h2>Ceci est un H2</h2>
+	<h3>Ceci est un H3</h3>
+	<h4>Ceci est un H4</h4>
+	<h5>Ceci est un H5</h5>
+	<h6>Ceci est un H6</h6></section>
+
+	<p>Ceci est un paragraphe ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, impedit modi veritatis quos nam quam labore maxime quae iusto eveniet a officiis? Laborum doloremque dolor corrupti doloribus non quis eveniet.</p>
+
+	<ul>
+		<li>liste
+		</li>
+		<li>liste
+		</li>
+		<li>liste
+		</li>
+		<li>liste
+		</li>
+	</ul>
+
+	<a href="#">ceci est un lien</a>
+
+	<h2>Boutons</h2>
+	<div class="aaaBouton">
+		<div class="aaaBoutons">
+			<h3>FontAwesome</h3>
+			<div>
+				<!-- //guillemets -->
+				<i class="fa-solid fa-quote-left"></i>
+				<i class="fa-solid fa-quote-right"></i>
+			</div>
+			<p>
+				<!-- icones utilisés
+																																												   // nouveau -->
+				<i class="fa-solid fa-circle-plus"></i>
+
+				<!-- //modifier -->
+				<i class="fa-solid fa-pen-to-square"></i>
+
+				<!-- //supprimer -->
+				<i class="fa-solid fa-trash-can"></i>
+
+				<!-- //valider / étape suivante -->
+				<i class="fa-solid fa-arrow-right"></i>
+				<!-- //retour -->
+				<i class="fa-solid fa-arrow-left"></i>
+
+			</p>
+		</div>
+		<div class="aaaBoutons">
+			<h3>Boutons à texte</h3>
+
+			<a class="btnAdd" href="#">
+				Ajouter </a>
+			<!-- //valider -->
+			<a class="btnOk" href="#">En savoir plus</a>
+
+			<!-- //modifier -->
+			<a class="btnEdit" href="#">Modifier</a>
+
+			<!-- //supprimer -->
+			<a class="btnDelete" href="#">Supprimer</a>
+
+			<!-- //retour -->
+			<a class="btnBack" href="javascript:history.go(-1)">
+				<i class="fa-solid fa-arrow-left"></i>
+			</a>
+		</div>
+		<div class="aaaBoutons">
+			<h3>Boutons Icones</h3>
+			<div class="aaaIcones">
+				<div>
+					<h4>Retour</h4>
+					<a class="btn btnRetour" href="javascript:history.go(-1)">
+						<i class="fa-solid fa-arrow-left"></i>
+					</a>
+				</div>
+				<div>
+					<h4>Ajouter</h4>
+					<a class="btn iconeAjout" href="#">
+						<i class="fa-solid fa-circle-plus"></i>
+					</a>
+				</div>
+				<div>
+					<h4>Valider</h4>
+					<div>
+						<p>
+							balise a
+							<a class="btn iconeOk" href="#">
+								<i class="fa-solid fa-check"></i>
+							</a>
+						</p>
+					</div>
+					<div>
+						<p>button
+							<div class="groupeBtn">
+								<button class="btn iconeOk">
+									<i class="fa-solid fa-check"></i>
+								</button>
+							</div>
+						</p>
+					</div>
+				</div>
+
+				<div>
+					<h4>Modifier</h4>
+					<a class="btn iconeModifier" href="#">
+						<i class="fa-solid fa-pen-to-square"></i>
+					</a>
+				</div>
+				<div>
+					<h4>Supprimer</h4>
+					<div>
+						<p>
+							balise a
+							<a class="btn iconeSupprimer" href="#">
+								<i class="fa-solid fa-trash-can"></i>
+							</a>
+						</p>
+					</div>
+					<div>
+						<p>button
+							<button class="btn iconeSupprimer">
+								<i class="fa-solid fa-trash-can"></i>
+							</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
