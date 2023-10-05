@@ -1,4 +1,14 @@
+{{ form_errors(form) }}
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="form-field">
+	{{ form_row(form.nom, {
+            label: 'Nouveau nom',
+                   }) }}
+</div>
+<div class="groupeBtn">
+	<button class="iconeOk">
+		<i class="fa-solid fa-check"></i>
+	</button>
+</div>
 {{ form_end(form) }}
