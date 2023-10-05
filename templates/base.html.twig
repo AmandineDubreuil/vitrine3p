@@ -12,10 +12,7 @@
 			{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
 			<!-- Font Awesome -->
-			<link
-			rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
-
-			{{ encore_entry_link_tags('app') }}
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
 
 			<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
 
@@ -24,6 +21,19 @@
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
-		{% block body %}{% endblock %}
-	</body>
+			{% include "_partials/_flash.html.twig" %}
+			{% if app.user and app.user.isverified == false %}
+				<div class="alert-warning" role="alert">
+					<div class="alert-message">
+						<strong>Votre compte n'est pas encore activé</strong>.
+																																																					Renvoyer le
+						<a href="{{ path('app_resend_verif') }}">lien d'activation</a>
+					</div>
+				</div>
+			{% endif %}
+		
+		{% block body %}
+			{% endblock %}
+
+				</body>
 </html>

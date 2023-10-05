@@ -34,8 +34,9 @@ Tokens générés via JWT pour la vérification de l'adresse e-mail et la modifi
 - utilisation d'un service PictureService.php
 - dans parameters de config/services.yaml mettre : images_directory: '%kernel.project_dir%/public/assets/uploads/'
 
+## Formations
 
-## Description d'une formation avec CKEditor5
+### Description d'une formation avec CKEditor5
 
 - télécharger le dossier sur https://ckeditor.com/ckeditor-5/download/?null-addons= 
 - l'installer dans public/assets/ckeditor5
@@ -46,6 +47,11 @@ Tokens générés via JWT pour la vérification de l'adresse e-mail et la modifi
 - dans formation/edit.html.twig, créer un block js avec lien vers ckeditor.js du dossier ckeditor5 et du dossier js
 - pour que la mise en forme apparaisse, mettre {{ formation.description | raw  }} dans formation show 
 
+## Credits
+
+Photos et images : Freepik
+
 ## License
 
 MIT Licence
+
