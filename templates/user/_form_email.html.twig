@@ -1,0 +1,15 @@
+{{ form_errors(formEmail) }}
+
+{{ form_start(formEmail) }}
+<div class="form-field">
+	{{ form_row(formEmail.email, {
+            label: 'Nouvel E-mail',
+                   }) }}
+</div>
+<p class="grey">En cliquant sur le bouton Enregistrer, un e-mail de confirmation sera envoyé sur ta messagerie électronique. Merci de bien vouloir cliquer dessus afin de confirmer ta nouvelle adresse e-mail.</p>
+<div class="groupeBtn">
+	<button class="iconeOk">
+		<i class="fa-solid fa-check"></i>
+	</button>
+</div>
+{{ form_end(formEmail) }}

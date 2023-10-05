@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon compte
+{% block title %}Modification du compte
 {% endblock %}
 {% block stylesheets %}
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
@@ -9,6 +9,7 @@
 	<!-- Font Awesome -->
 	<link
 	rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
+
 	{{ encore_entry_link_tags('app') }}
 
 	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
@@ -16,21 +17,16 @@
 {% endblock %}
 
 {% block body %}
+	<section class="userEdit">
 
-	<section class="user">
-		
-	
-			<h1>{{app.user.nom}}</h1>
-		
-		<div class="gestionUser">
-			<div class="email">
-				<p>E-mail :</p>
-				<a href="{{ path('app_user_edit_email', {'id': app.user.id})}}">
-					<p>&nbsp;{{app.user.email}}&nbsp;</p>
-					<i class="fa-solid fa-pen-to-square iconeModifier"></i>
-				</a>
-			</div>
+		<a class="btnBack" href="{{ path('app_user_index') }}">
+			<i class="fa-solid fa-arrow-left"></i>
+		</a>
 
-			<a href="{{ path('app_modif_password') }}" class=" btnEdit">Modifier le mot de passe</a>
-		</div>
+		<h1>Modification de votre e-mail</h1>
+
+		{{ include('user/_form_email.html.twig', {'button_label': 'Enregistrer'}) }}
+
+	</section>
+
 {% endblock %}
