@@ -9,14 +9,11 @@ Vitrine3p est un site internet promouvant des formations professionnelles. C'est
 - MySql
 
 - CKEditor5
+- EasyAdminBundle 4
 
 ## Tokens
 
 Tokens générés via JWT pour la vérification de l'adresse e-mail et la modification du mot de passe
-
-## Bundles
-
-- EasyAdminBundle 4
 
 ## User
 
