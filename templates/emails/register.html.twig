@@ -1,0 +1,18 @@
+{% extends 'emails/base_emails.html.twig' %}
+
+{% block body %}
+	<h1>Activation de votre compte</h1>
+
+	<p>
+		Bonjour
+		{{ user.nom}},</p>
+
+	<p>Merci pour votre inscription. Vous pouvez finaliser celle-ci en cliquant sur le lien ci-dessous :</p>
+	<p>
+		<a href="{{ absolute_url( path('app_verify_user',{token:token} )) }}">Lien</a>
+	</p>
+	<p>Ce lien expirera dans 24 heures.</p>
+	<p>Bien cordialement,</p>
+	<p>Vitrine3p</p>
+
+{% endblock %}

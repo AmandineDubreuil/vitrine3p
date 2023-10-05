@@ -23,6 +23,7 @@ Tokens générés via JWT pour la vérification de l'adresse e-mail et la modifi
 ### Vérification adresse e-mail user
 - Services JWTService.php et SendMailService.php
 - dans config/package/messenger commenter   # Symfony\Component\Mailer\Messenger\SendEmailMessage: async
+- dans parameters de config/services.yaml mettre : app.jwtsecret: '%env(JWT_SECRET)%'
 - dans env.local mettre le secret JWT
 - dans env.local modifier le mailer : MAILER_DSN=smtp://localhost:1025
 
@@ -31,6 +32,8 @@ Tokens générés via JWT pour la vérification de l'adresse e-mail et la modifi
 
 ### Photos du catalogue et des membres de l'équipe
 - utilisation d'un service PictureService.php
+- dans parameters de config/services.yaml mettre : images_directory: '%kernel.project_dir%/public/assets/uploads/'
+
 
 ## Description d'une formation avec CKEditor5
 
