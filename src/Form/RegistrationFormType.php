@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
             ->add('nom', TextType::class, [
                 'required' => true,
                 'attr' => [
-                    'class' => 'form-control rounded-1',
+                    'class' => '',
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -46,7 +46,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Merci de saisir un mot de passe',
                     ]),
                     new Length([
                         'min' => 8,
