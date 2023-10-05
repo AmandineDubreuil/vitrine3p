@@ -8,7 +8,6 @@ Vitrine3p est un site internet promouvant des formations professionnelles. C'est
 - Symfony 6.3.5
 - MySql
 
-- CKEditor5
 - EasyAdminBundle 4
 
 ## Tokens
