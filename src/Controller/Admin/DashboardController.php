@@ -47,6 +47,7 @@ class DashboardController extends AbstractDashboardController
         //    ->renderContentMaximized();
     }
 
+
     public function configureMenuItems(): iterable
     {
       //  yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
