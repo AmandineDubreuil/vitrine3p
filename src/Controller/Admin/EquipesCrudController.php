@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
+
 class EquipesCrudController extends AbstractCrudController
 {
 
@@ -136,4 +137,6 @@ class EquipesCrudController extends AbstractCrudController
             ->setSortable(false);
         yield TextField::new('horaires');
     }
+
+
 }
