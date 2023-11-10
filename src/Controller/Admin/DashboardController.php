@@ -43,7 +43,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Vitrine3p');
+            ->setTitle('Administration du site Vitrine3p');
         //    ->renderContentMaximized();
     }
 
@@ -51,6 +51,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
       //  yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+      yield MenuItem::linktoRoute('Site Vitrine3p', 'fas fa-home', 'app_home');
         yield MenuItem::section('Equipe');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
              MenuItem::linkToCrud('Ajout Collaborateur', 'fas fa-plus', Equipes::class)->setAction(Crud::PAGE_NEW),
