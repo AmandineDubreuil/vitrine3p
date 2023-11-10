@@ -14,7 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-
+use App\Service\PictureService;
 
 class EquipesCrudController extends AbstractCrudController
 {
@@ -35,8 +35,7 @@ class EquipesCrudController extends AbstractCrudController
             ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
                 return $action
                     ->setIcon('fas fa-plus')
-                    ->setLabel('Ajouter un collaborateur')
-                    ;
+                    ->setLabel('Ajouter un collaborateur');
             })
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
                 return $action
@@ -58,7 +57,7 @@ class EquipesCrudController extends AbstractCrudController
                 return $action
                     ->setIcon('fas fa-edit text-warning')
                     ->setLabel('Editer');
-            }) 
+            })
             ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
                 return $action
                     ->setIcon('fas fa-trash text-danger')
@@ -74,12 +73,12 @@ class EquipesCrudController extends AbstractCrudController
             ->add(Crud::PAGE_EDIT, Action::INDEX)
             ->update(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE, function (Action $action) {
                 return $action
-                   // ->setIcon('fa-solid fa-arrow-left')
+                    // ->setIcon('fa-solid fa-arrow-left')
                     ->setLabel('Enregistrer et continuer');
             })
             ->update(Crud::PAGE_EDIT, Action::SAVE_AND_RETURN, function (Action $action) {
                 return $action
-                   // ->setIcon('fa-solid fa-arrow-left')
+                    // ->setIcon('fa-solid fa-arrow-left')
                     ->setLabel('Enregistrer');
             })
             ->update(Crud::PAGE_EDIT, Action::INDEX, function (Action $action) {
@@ -92,21 +91,19 @@ class EquipesCrudController extends AbstractCrudController
 
             ->update(Crud::PAGE_NEW, Action::SAVE_AND_ADD_ANOTHER, function (Action $action) {
                 return $action
-                   // ->setIcon('fa-solid fa-arrow-left')
+                    // ->setIcon('fa-solid fa-arrow-left')
                     ->setLabel('Créer et ajouter un nouveau');
             })
             ->update(Crud::PAGE_NEW, Action::SAVE_AND_RETURN, function (Action $action) {
                 return $action
-                   // ->setIcon('fa-solid fa-arrow-left')
+                    // ->setIcon('fa-solid fa-arrow-left')
                     ->setLabel('Créer');
             })
             ->update(Crud::PAGE_NEW, Action::INDEX, function (Action $action) {
                 return $action
                     ->setIcon('fa-solid fa-arrow-left')
                     ->setLabel('Retour');
-            })
-
-            ;
+            });
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -114,9 +111,7 @@ class EquipesCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInPlural('Collaborateurs')
             ->setEntityLabelInSingular('Collaborateur')
-            ->setPageTitle('index', 'Vitrine3p - Administration des Utilisateurs')
-            
-            ;
+            ->setPageTitle('index', 'Vitrine3p - Administration des Collaborateurs');
     }
 
     public function configureFields(string $pageName): iterable
@@ -137,6 +132,4 @@ class EquipesCrudController extends AbstractCrudController
             ->setSortable(false);
         yield TextField::new('horaires');
     }
-
-
 }
