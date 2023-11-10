@@ -40,6 +40,7 @@
     list-style: none;
 }
 
+
 img {
   width: 100%;
 }
@@ -82,10 +83,9 @@ h2{
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 100;
-  padding: 0.7rem;
+  padding: .7rem;
   width: fit-content;
   min-width: 5rem;
-  /* height: 2rem; */
   margin: 1rem;
 }
 .btnAdd {
@@ -180,3 +180,4 @@ h2{
   font-weight: bold;
   width: 100%;
 }
+

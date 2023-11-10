@@ -13,27 +13,64 @@
 
 			<!-- Font Awesome -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
-
 			<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
-
+			<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
 		{% endblock %}
 
-		{% block javascripts %}{% endblock %}
+
 	</head>
 	<body>
-			{% include "_partials/_flash.html.twig" %}
-			{% if app.user and app.user.isverified == false %}
-				<div class="alert-warning" role="alert">
-					<div class="alert-message">
-						<strong>Votre compte n'est pas encore activé</strong>.
-																																																					Renvoyer le
-						<a href="{{ path('app_resend_verif') }}">lien d'activation</a>
-					</div>
-				</div>
-			{% endif %}
-		
-		{% block body %}
-			{% endblock %}
+		<header class="menu">
+			<div class="navbar-fixed">
+				<nav class="navbar">
+					<div class="navbar-head">
+						<div class="burger">
+							<i class="fa-solid fa-bars"></i>
+						</div>
+						<a href="{{path('app_home')}}" class="navbar-brand" id="logo">Vitrine3p Logo</a>
 
-				</body>
+						<div class="close">
+							<i class="fa-solid fa-xmark"></i>
+						</div>
+					</div>
+					<ul class="navbar-menu">
+						<li>
+							<a class="navbar-link" href="{{path('app_equipes_index')}}">Equipe</a>
+						</li>
+						<li>
+							<a class="navbar-link" href="{{path('app_home')}}">Formations</a>
+						</li>
+
+
+						{% if is_granted('ROLE_ADMIN') %}
+							<li>
+								<a class="navbar-link" href="{{path('admin')}}">
+									<i class="fa-solid fa-file-shield"></i>
+									<span class="masqueTel">
+										Admin</span>
+								</a>
+							</li>
+						{% endif %}
+
+
+					</ul>
+					<a href="#" class="btnOk contact">Contact</a>
+				</nav>
+			</div>
+
+		</header>
+		{% include "_partials/_flash.html.twig" %}
+		{% if app.user and app.user.isverified == false %}
+			<div class="alert-warning" role="alert">
+				<div class="alert-message">
+					<strong>Votre compte n'est pas encore activé</strong>.
+																																																																								Renvoyer le
+					<a href="{{ path('app_resend_verif') }}">lien d'activation</a>
+				</div>
+			</div>
+		{% endif %}
+
+		{% block body %}{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</body>
 </html>
