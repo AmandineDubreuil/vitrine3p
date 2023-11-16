@@ -35,7 +35,7 @@
 						</div>
 						<a href="{{path('app_home')}}" class="navbar-brand" id="logo">Vitrine3p Logo</a>
 
-					
+
 					</div>
 					<ul class="navbar-menu hideNav">
 						<li>
@@ -66,18 +66,29 @@
 
 			</div>
 
-		</header>
-		{% include "_partials/_flash.html.twig" %}
-		{% if app.user and app.user.isverified == false %}
-			<div class="alert-warning" role="alert">
-				<div class="alert-message">
-					<strong>Votre compte n'est pas encore activé</strong>. Renvoyer le
-					<a href="{{ path('app_resend_verif') }}">lien d'activation</a>
-				</div>
-			</div>
-		{% endif %}
 
-		{% block body %}{% endblock %}
+			{% include "_partials/_flash.html.twig" %}
+			{% if app.user and app.user.isverified == false %}
+				<div class="alert-warning" role="alert">
+					<div class="alert-message">
+						<strong>Votre compte n'est pas encore activé</strong>. Renvoyer le
+						<a href="{{ path('app_resend_verif') }}">lien d'activation</a>
+					</div>
+				</div>
+			{% endif %}
+		</header>
+
+		<main>
+			{% block body %}{% endblock %}
+		</main>
+		<footer>
+			<p>Copyright © 2023 - Vitrine3p</p>
+			<div>
+				<a href="{{ path('app_legal') }}" target="blank">Mentions légales</a>
+				
+				{# / <a href="{{ path('app_confidentialite') }}" target="blank">Politique de confidentialité</a> #}
+			</div>
+		</footer>
 		{% block javascripts %}
 			<script src="{{asset('./assets/js/menu.js')}}"></script>
 		{% endblock %}
