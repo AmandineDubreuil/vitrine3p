@@ -1,42 +1,128 @@
+/******************
+ menu
+ **************** */
 
 .menu {
-    position: relative;
-    background-color: var(--color-one);
-    border: 1px red solid;
-
-
+  position: relative;
 }
 .menu .navbar-fixed {
-    position: fixed;
-    border: 1px blue solid;
-    height: fit-content;
+  position: fixed;
+  top: 0;
+  height: fit-content;
 }
 .menu .navbar {
-    border: 1px green solid;
-
+  background-color: var(--color-one);
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+    -webkit-box-shadow: 0px 2px 15px 2px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 2px 15px 2px rgba(0, 0, 0, 0.35);
 }
+
+/* navbar-head*/
 .menu .navbar .navbar-head {
-    border: 1px aqua solid;
-
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.menu .navbar .navbar-menu {
-    border: 1px rgb(255, 0, 200) solid;
+.menu .navbar .navbar-head .burger,
+.menu .navbar .navbar-head .close {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
+.menu .navbar .navbar-head .burger i,
+.menu .navbar .navbar-head .close i {
+  font-size: 1.3rem;
+}
+
+/* navbar-menu*/
+.menu .navbar .navbar-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
 }
 .menu .navbar .navbar-menu .navbar-link {
-    border: 1px rgb(229, 255, 0) solid;
-
+  border-bottom: 2px var(--color-light) solid;
+  display: block;
+  width: 75vw;
+  padding: 1rem 2rem 0.7rem 3rem;
+  background-color: var(--color-one);
+}
+.menu .contact {
+  position: fixed;
+  display: block;
+  top: 5rem;
+  right: 1rem;
+  margin: 1rem 1rem 0.7rem;
+  z-index: 0;
 }
 
-
-
+.hideNav {
+  position: relative;
+  left: -400px;
+  opacity: 0;
+  background-color: #ffffff00;
+}
+.showNav {
+  left: 0;
+  opacity: 1;
+  background-color: var(--color-one);
+}
 /* *********************** 
    RESPONSIVE DESKTOP
    ************************ */
 
-   @media screen and (min-width: 576px) {
-    
-    
-    /*fin responsive*/
+@media screen and (min-width: 576px) {
+  /******************
+ menu
+ **************** */
+  .menu .contact {
+        top: 0rem;
+        right: 1rem;
+        margin: 1rem 1rem 0.7rem;
+        z-index: 2;
+      
   }
+  .menu .navbar {
+    width: 100vw;
+    padding-right: 10rem;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /*navbar-head*/
+  .menu .navbar .navbar-head .burger,
+  .menu .navbar .navbar-head .close {
+    display: none;
+  }
+
+  /*navbar-menu*/
+  .menu .navbar .hideNav {
+    left: 0;
+    opacity: 1;
+    background-color: var(--color-one);
+  }
+
+  .menu .navbar .navbar-menu {
+    width: fit-content;
+    flex-direction: row;
+    align-items: center;
+  }
+  .menu .navbar .navbar-menu .navbar-link {
+    display: block;
+    width: 8rem;
+    padding: 1rem;
+    border: none;
+  }
+
+  .menu .navbar .navbar-menu .navbar-link:hover {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  /*fin responsive*/
+}

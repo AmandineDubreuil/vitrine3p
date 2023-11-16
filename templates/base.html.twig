@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}Welcome!
 			{% endblock %}
@@ -21,19 +23,24 @@
 	</head>
 	<body>
 		<header class="menu">
+			<a href="#" class="btnEdit contact">Contact</a>
 			<div class="navbar-fixed">
 				<nav class="navbar">
 					<div class="navbar-head">
 						<div class="burger">
 							<i class="fa-solid fa-bars"></i>
 						</div>
-						<a href="{{path('app_home')}}" class="navbar-brand" id="logo">Vitrine3p Logo</a>
-
-						<div class="close">
+						<div class="close dnone">
 							<i class="fa-solid fa-xmark"></i>
 						</div>
+						<a href="{{path('app_home')}}" class="navbar-brand" id="logo">Vitrine3p Logo</a>
+
+					
 					</div>
-					<ul class="navbar-menu">
+					<ul class="navbar-menu hideNav">
+						<li>
+							<a class="navbar-link" href="{{path('app_home')}}">Accueil</a>
+						</li>
 						<li>
 							<a class="navbar-link" href="{{path('app_equipes_index')}}">Equipe</a>
 						</li>
@@ -46,7 +53,7 @@
 							<li>
 								<a class="navbar-link" href="{{path('admin')}}">
 									<i class="fa-solid fa-file-shield"></i>
-									<span class="masqueTel">
+									<span>
 										Admin</span>
 								</a>
 							</li>
@@ -54,8 +61,9 @@
 
 
 					</ul>
-					<a href="#" class="btnOk contact">Contact</a>
+
 				</nav>
+
 			</div>
 
 		</header>
@@ -63,14 +71,15 @@
 		{% if app.user and app.user.isverified == false %}
 			<div class="alert-warning" role="alert">
 				<div class="alert-message">
-					<strong>Votre compte n'est pas encore activé</strong>.
-																																																																								Renvoyer le
+					<strong>Votre compte n'est pas encore activé</strong>. Renvoyer le
 					<a href="{{ path('app_resend_verif') }}">lien d'activation</a>
 				</div>
 			</div>
 		{% endif %}
 
 		{% block body %}{% endblock %}
-		{% block javascripts %}{% endblock %}
+		{% block javascripts %}
+			<script src="{{asset('./assets/js/menu.js')}}"></script>
+		{% endblock %}
 	</body>
 </html>
