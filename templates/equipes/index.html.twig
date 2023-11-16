@@ -1,42 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Equipe Vitrine3p{% endblock %}
+{% block title %}Equipe Vitrine3p
+{% endblock %}
 {% block stylesheets %}
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 	{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
 	<!-- Font Awesome -->
-	<link
-	rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
- 
-	{{ encore_entry_link_tags('app') }}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
 	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
 
+	<link rel="stylesheet" href="{{asset('./assets/css/equipeStyle.css')}}">
 {% endblock %}
 
 {% block body %}
 
-<section class="equipe">
-<div class="entete">
-<h1>Qui sommes-nous ?</h1>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, ex, unde alias quas quo eaque quasi quisquam blanditiis possimus quis eius incidunt ea accusantium nostrum quidem illo non nisi. Voluptatibus.</p>
-<div class="image">
-<img src="{{asset('./assets/img/mains.jpg')}}" alt="mains"></div>
+	<section class="equipe entete premieresection">
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quas blanditiis, ius incidunt ea accusantium nostrum quidem a voluptatem.</p>
-</div>
+		<h1>Qui sommes-nous ?</h1>
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, ex, unde alias quas quo eaque quasi quisquam blanditiis possimus quis eius incidunt ea accusantium nostrum quidem illo non nisi. Voluptatibus.</p>
+		<div class="image">
+			<img src="{{asset('./assets/img/mains.jpg')}}" alt="mains"></div>
 
-{% for collaborateur in equipes %}
-    <div class="collaborateur">
-    <div class="imageRond">
-    <img src="{{asset('./assets/uploads/equipe/')}}{{collaborateur.photo}}" alt="{{collaborateur.nom}}">
-    </div>
-    </div>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quas blanditiis, ius incidunt ea accusantium nostrum quidem a voluptatem.</p>
+	</section>
+	<section class="collaborateurs">
 
 
-{% endfor %}
+		{% for collaborateur in equipes %}
+			<div class="collaborateur">
+				<div class="imageRond">
+					<img src="{{asset('./assets/uploads/equipe/')}}{{collaborateur.photo}}" alt="{{collaborateur.nom}}">
+				</div>
+				<div class="description">
+					<h2>{{collaborateur.nom}}</h2>
+					<h3>{{collaborateur.fonction}}</h3>
+					<p>{{collaborateur.description | raw }}</p>
+					<div class="contact">
+						<p>{{collaborateur.phone}}
+							{% if collaborateur.phone and collaborateur.email %}
+								-
+							{% endif %}
+							{{collaborateur.email}}</p>
+						<p>{{collaborateur.horaires}}</p>
+					</div>
+				</div>
+			</div>
 
-</section>
+		{% endfor %}
+	</section>
 
 
 {% endblock %}

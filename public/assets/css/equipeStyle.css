@@ -1,0 +1,47 @@
+.equipe {
+    margin-bottom: 2rem;
+}
+.equipe .image {
+  width: 40%;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+.collaborateurs .collaborateur {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.collaborateurs .collaborateur .imageRond {
+  width: 40%;
+  margin: auto;
+}
+/* *********************** 
+   RESPONSIVE DESKTOP
+   ************************ */
+
+@media screen and (min-width: 576px) {
+  .equipe .image {
+    max-width: 10rem;
+  }
+  .equipe p:nth-child(2) {
+    text-align: left;
+    margin-right: 4rem;
+  }
+  .equipe p:nth-child(4) {
+    text-align: right;
+    margin-left: 4rem;
+  }
+
+  .collaborateurs .collaborateur:nth-child(odd) {
+    flex-direction: row;
+  }
+  .collaborateurs .collaborateur:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .collaborateurs .collaborateur .imageRond {
+    margin: 1rem;
+    width: 40rem;
+  }
+  /*fin responsive*/
+}
