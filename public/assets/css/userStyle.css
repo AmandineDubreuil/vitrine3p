@@ -1,0 +1,24 @@
+/* *********************** 
+login
+************************ */
+
+
+
+.login p a:hover{
+    text-decoration: underline;
+}
+
+.login .btnOk {
+    margin-right: 0;
+
+}
+
+/* *********************** 
+   RESPONSIVE DESKTOP
+   ************************ */
+
+   @media screen and (min-width: 576px) {
+
+    /*fin responsive*/
+  }
+  

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
+{% block title %}Connexion
 {% endblock %}
 
 {% block stylesheets %}
@@ -11,35 +11,88 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
 	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/formStyle.css')}}">
 
+	<link rel="stylesheet" href="{{asset('./assets/css/userStyle.css')}}">
 
 {% endblock %}
 {% block body %}
-	<section class="premieresection">
+	<section
+		class="login premieresection">
+		{# en cas d'erreur #}
+		{% if error %}
+			<div class="alert alert-danger">
+				<p>L'e-mail ou le mot de passe semble incorrect.</p>
+
+			</div>
+		{% endif %}
+
+		{# si le user est déjà connecté #}
+		{% if app.user %}
+			<div>
+				Bienvenue
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Me déconnecter</a>
+			</div>
+		{% endif %}
+
+
+
+		<h1>Connexion</h1>
+
+		{# formulaire #}
 		<form method="post">
-			{% if error %}
-				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-			{% endif %}
+			<div class="form-field">
+				<label for="inputEmail">E-mail :</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="" placeholder="nom@exemple.fr" autocomplete="email" required autofocus>
+			</div>
 
-			{% if app.user %}
-				<div class="mb-3">
-					You are logged in as
-					{{ app.user.userIdentifier }},
-					<a href="{{ path('app_logout') }}">Logout</a>
-				</div>
-			{% endif %}
+			<div class="form-field">
+				<label for="inputPassword">Mot de passe :</label>
+				<input type="password" name="password" id="inputPassword" class="" autocomplete="current-password" required>
+			</div>
 
-			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-			<label for="inputEmail">Email</label>
-			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-			<label for="inputPassword">Password</label>
-			<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-			<button class="btn btn-lg btn-primary" type="submit">
-				Sign in
+			<button class="btnOk" type="submit">
+				Je me connecte
 			</button>
+			<p>
+				Mot de passe oublié ?
+				<a href="{{ path('app_forgotten_password') }}">Je réinitialise mon mot de passe.</a>
+			</p>
+			<p>
+				Pas encore de compte ?
+				<a href="{{ path('app_register') }}">Je contacte l'administrateur</a>.</p>
+
 		</form>
 	</section>
+	{# <section class="premieresection">
+			<form method="post">
+				{% if error %}
+					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+	
+				{% if app.user %}
+					<div class="mb-3">
+						You are logged in as
+						{{ app.user.userIdentifier }},
+						<a href="{{ path('app_logout') }}">Logout</a>
+					</div>
+				{% endif %}
+	
+				<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+				<label for="inputEmail">Email</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+				<label for="inputPassword">Password</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+	
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+	
+				<button class="btn btn-lg btn-primary" type="submit">
+					Sign in
+				</button>
+			</form>
+		</section> #}
 {% endblock %}

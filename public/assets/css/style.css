@@ -14,15 +14,19 @@
 
   :root {
     --color-one: #c49082;
-  
+    --color-one-light: #c49082be;
+
     --color-two: #c1baa2;
-  
+    --color-two-light: #c1baa2be;
+
     --color-three: #e5dacf;
-  
+    --color-three-light: #e5dacfbe;
+
     --color-light: #fff4ec;
   
     --color-four: #95999b;
-  
+    --color-four-light: #95999bbe;
+
     --color-five: #fff;
   
     --color-six: #000;
@@ -40,7 +44,9 @@
     text-decoration: none;
     list-style: none;
 }
-
+main {
+  min-height: 80vh;
+}
 
 img {
   width: 100%;
@@ -85,7 +91,7 @@ p {
 h1{
 font-family: 'Lato-bold', Arial, Helvetica, sans-serif;
 font-size: 1.5rem;
-margin-top: 1rem;
+margin-top: 2rem;
 margin-bottom: 1rem;
 }
 h2{
@@ -113,25 +119,39 @@ h2{
   background-color: var(--color-two);
   color: var(--color-light);
 }
+.btnAdd:hover{
+  background-color: var(--color-two-light);
+}
 .btnOk {
+  border: none;
   background-color: var(--color-one);
   color: var(--color-light);
 }
-
+.btnOk:hover{
+  background-color: var(--color-one-light);
+}
 .btnEdit {
   background-color: var(--color-three);
   color: var(--color-one);
 }
-
+.btnEdit:hover {
+  background-color: var(--color-three-light);
+}
 .btnDelete {
   background-color: var(--color-four);
 }
-
-.btnRetour {
-  background-color: var(--color-five);
-  border: 1px solid gray;
+.btnDelete:hover {
+  background-color: var(--color-four-light);
 }
+.btnBack {
+  background-color: var(--color-five);
+  /* border: 1px solid gray; */
+}
+.btnBack:hover {
+  font-weight: bold;
+  background-color: var(--color-four-light);
 
+}
 /*  Icones */
 
 .iconeAjout,
