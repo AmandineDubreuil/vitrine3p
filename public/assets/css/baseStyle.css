@@ -72,6 +72,28 @@
   opacity: 1;
   background-color: var(--color-one);
 }
+
+/******************
+ footer
+ **************** */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-one);
+}
+footer p{
+  padding: 1rem 0 .5rem;
+}
+footer div{
+  padding: .5rem 0 1rem;
+}
+footer p, footer div a {
+  font-size: .8rem;
+
+}
 /* *********************** 
    RESPONSIVE DESKTOP
    ************************ */

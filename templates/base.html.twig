@@ -22,6 +22,10 @@
 
 	</head>
 	<body>
+		{# **************
+						header 
+				*****************#}
+
 		<header class="menu">
 			<a href="#" class="btnEdit contact">Contact</a>
 			<div class="navbar-fixed">
@@ -66,6 +70,9 @@
 
 			</div>
 
+			{# **************
+							message flash 
+					*****************#}
 
 			{% include "_partials/_flash.html.twig" %}
 			{% if app.user and app.user.isverified == false %}
@@ -77,15 +84,22 @@
 				</div>
 			{% endif %}
 		</header>
+		{# **************
+						main 
+				*****************#}
 
 		<main>
 			{% block body %}{% endblock %}
 		</main>
+
+		{# **************
+						footer 
+				*****************#}
 		<footer>
 			<p>Copyright © 2023 - Vitrine3p</p>
 			<div>
 				<a href="{{ path('app_legal') }}" target="blank">Mentions légales</a>
-				
+
 				{# / <a href="{{ path('app_confidentialite') }}" target="blank">Politique de confidentialité</a> #}
 			</div>
 		</footer>
