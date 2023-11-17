@@ -1,9 +1,6 @@
 /* *********************** 
 login
 ************************ */
-
-
-
 .login p a:hover{
     text-decoration: underline;
 }
@@ -12,6 +9,14 @@ login
     margin-right: 0;
 
 }
+
+/* *********************** 
+reset password
+************************ */
+.resetPasswordRequest h1{
+    margin-top: 4rem;
+}
+
 
 /* *********************** 
    RESPONSIVE DESKTOP

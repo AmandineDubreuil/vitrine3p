@@ -1,48 +1,48 @@
 @font-face {
-    font-family: "Lato";
-    src: url(../font/Lato-Regular.ttf);
-  }
+  font-family: "Lato";
+  src: url(../font/Lato-Regular.ttf);
+}
 
-  @font-face {
-    font-family: "Lato-bold";
-    src: url(../font/Lato-Bold.ttf);
-  }
-  @font-face {
-    font-family: "Lato-black";
-    src: url(../font/Lato-Black.ttf);
-  }
+@font-face {
+  font-family: "Lato-bold";
+  src: url(../font/Lato-Bold.ttf);
+}
+@font-face {
+  font-family: "Lato-black";
+  src: url(../font/Lato-Black.ttf);
+}
 
-  :root {
-    --color-one: #c49082;
-    --color-one-light: #c49082be;
+:root {
+  --color-one: #c49082;
+  --color-one-light: #c49082be;
 
-    --color-two: #c1baa2;
-    --color-two-light: #c1baa2be;
+  --color-two: #c1baa2;
+  --color-two-light: #c1baa2be;
 
-    --color-three: #e5dacf;
-    --color-three-light: #e5dacfbe;
+  --color-three: #e5dacf;
+  --color-three-light: #e5dacfbe;
 
-    --color-light: #fff4ec;
-  
-    --color-four: #95999b;
-    --color-four-light: #95999bbe;
+  --color-light: #fff4ec;
 
-    --color-five: #fff;
-  
-    --color-six: #000;
-  }
+  --color-four: #95999b;
+  --color-four-light: #95999bbe;
+
+  --color-five: #fff;
+
+  --color-six: #000;
+}
 
 /* INITIALISATION */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato',Arial, Helvetica, sans-serif;
-    color: var(--color-six);
-    font-size: 1rem;
-    text-decoration: none;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  color: var(--color-six);
+  font-size: 1rem;
+  text-decoration: none;
+  list-style: none;
 }
 main {
   min-height: 80vh;
@@ -51,34 +51,34 @@ main {
 img {
   width: 100%;
 }
-
+.grey {
+  color: var(--color-four);
+}
 /*placement df*/
 .dfRight {
   display: flex;
   justify-content: flex-end;
- }
+}
 
- .dnone {
+.dnone {
   display: none;
- }
+}
 
- /* logo / nom entreprise */
-#logo{
+/* logo / nom entreprise */
+#logo {
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
 }
 
- /* sections div*/
+/* sections div*/
 section {
- /* width: 100%; */
-  padding: 1rem 2rem ;
-
+  /* width: 100%; */
+  padding: 1rem 2rem;
 }
 
 .premieresection {
   margin-top: 4.5rem;
-
 }
 
 /* paragraphes */
@@ -88,13 +88,13 @@ p {
 
 /* TITRES */
 
-h1{
-font-family: 'Lato-bold', Arial, Helvetica, sans-serif;
-font-size: 1.5rem;
-margin-top: 2rem;
-margin-bottom: 1rem;
+h1 {
+  font-family: "Lato-bold", Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
-h2{
+h2 {
   font-size: 1.3rem;
 }
 
@@ -107,19 +107,18 @@ h2{
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 100;
-  padding: .7rem;
+  padding: 0.7rem;
   width: fit-content;
   min-width: 5rem;
   margin: 1rem;
-  -webkit-box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.20);
-  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.20);
-
+  -webkit-box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .btnAdd {
   background-color: var(--color-two);
   color: var(--color-light);
 }
-.btnAdd:hover{
+.btnAdd:hover {
   background-color: var(--color-two-light);
 }
 .btnOk {
@@ -127,7 +126,7 @@ h2{
   background-color: var(--color-one);
   color: var(--color-light);
 }
-.btnOk:hover{
+.btnOk:hover {
   background-color: var(--color-one-light);
 }
 .btnEdit {
@@ -150,16 +149,20 @@ h2{
 .btnBack:hover {
   font-weight: bold;
   background-color: var(--color-four-light);
-
 }
 /*  Icones */
 
 .iconeAjout,
+.iconeOk,
 .iconeModifier,
 .iconeSupprimer {
   padding: 0.3rem;
+  border: none;
+  -webkit-box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .iconeAjout i,
+.iconeOk i,
 .iconeModifier i,
 .iconeSupprimer i {
   font-size: 1.2rem;
@@ -181,13 +184,11 @@ h2{
   background-color: #ffffff00;
 }
 
-
 /* IMAGES */
 
 .image img {
   border-radius: 20%;
 }
-
 
 .imageRond img {
   border-radius: 50%;
@@ -220,10 +221,9 @@ h2{
 }
 .alert-warning-jaune .alert-message {
   background-color: rgba(222, 208, 82, 0.3);
-  
+
   color: rgb(201, 184, 34);
   padding: 1rem;
   font-weight: bold;
   width: 100%;
 }
-
