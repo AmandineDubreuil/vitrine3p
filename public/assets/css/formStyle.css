@@ -3,7 +3,7 @@ form {
     flex-direction: column;
     max-width: 30rem;
 }
- form .form-field {
+ form .form-field div {
    display: flex;
    flex-direction: column; 
    margin-bottom: 1rem;
