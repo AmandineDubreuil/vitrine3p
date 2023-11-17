@@ -72,6 +72,13 @@
   opacity: 1;
   background-color: var(--color-one);
 }
+/******************
+ message flash
+ **************** */
+.alert {
+  margin-top: 4.5rem;
+}
+
 
 /******************
  footer

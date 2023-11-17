@@ -54,6 +54,9 @@ img {
 .grey {
   color: var(--color-four);
 }
+.bold{
+  font-weight: bold;
+}
 /*placement df*/
 .dfRight {
   display: flex;
@@ -144,7 +147,7 @@ h2 {
 }
 .btnBack {
   background-color: var(--color-five);
-  /* border: 1px solid gray; */
+  display: block;
 }
 .btnBack:hover {
   font-weight: bold;
@@ -158,8 +161,6 @@ h2 {
 .iconeSupprimer {
   padding: 0.3rem;
   border: none;
-  -webkit-box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .iconeAjout i,
 .iconeOk i,
@@ -174,7 +175,10 @@ h2 {
 .iconeOk {
   background-color: var(--color-three);
   color: var(--color-light);
-  border-radius: 5px;
+  border-radius: 5px;  
+  -webkit-box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+
 }
 .iconeModifier {
   color: var(--color-two);

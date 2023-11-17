@@ -7,22 +7,24 @@
 	{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
 	<!-- Font Awesome -->
-	<link
-	rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
-	{{ encore_entry_link_tags('app') }}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
 
 	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
+
+	<link rel="stylesheet" href="{{asset('./assets/css/userStyle.css')}}">
 
 {% endblock %}
 
 {% block body %}
 
-	<section class="user">
-		
-	
-			<h1>{{app.user.nom}}</h1>
-		
+	<section class="user premieresection">
+
+
+		<h1>{{app.user.nom}}</h1>
+
 		<div class="gestionUser">
+
 			<div class="email">
 				<p>E-mail :</p>
 				<a href="{{ path('app_user_edit_email', {'id': app.user.id})}}">
@@ -33,4 +35,4 @@
 
 			<a href="{{ path('app_modif_password') }}" class=" btnEdit">Modifier le mot de passe</a>
 		</div>
-{% endblock %}
+	{% endblock %}

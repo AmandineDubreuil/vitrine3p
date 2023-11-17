@@ -13,11 +13,15 @@
 	{{ encore_entry_link_tags('app') }}
 
 	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/formStyle.css')}}">
+
+	<link rel="stylesheet" href="{{asset('./assets/css/userStyle.css')}}">
 
 {% endblock %}
 
 {% block body %}
-	<section class="userEdit">
+	<section class="userEdit premieresection">
 
 		<a class="btnBack" href="{{ path('app_user_index') }}">
 			<i class="fa-solid fa-arrow-left"></i>
@@ -25,7 +29,7 @@
 
 		<h1>Modification de votre e-mail</h1>
 
-		{{ include('user/_form_email.html.twig', {'button_label': 'Enregistrer'}) }}
+		{{ include('user/_form_email.html.twig', {'button_label': 'Valider'}) }}
 
 	</section>
 

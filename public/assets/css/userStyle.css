@@ -17,6 +17,31 @@ reset password
     margin-top: 4rem;
 }
 
+/* *********************** 
+user index
+************************ */
+
+.user .gestionUser .email a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.user .gestionUser .email a p{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* *********************** 
+user modif email
+************************ */
+
+.userEdit .btnBack {
+    margin-top: .6rem;
+text-align: center;
+}
+
 
 /* *********************** 
    RESPONSIVE DESKTOP
