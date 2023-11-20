@@ -36,7 +36,7 @@ class ContactController extends AbstractController
                 compact('commentaire', 'nom', 'societe', 'telephone', 'mail', 'objet')
 
             );
-            $this->addFlash('success', 'Ton message a bien été envoyé.');
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
 
             return $this->redirectToRoute('app_home');   
         }
