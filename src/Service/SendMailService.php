@@ -14,13 +14,13 @@ class SendMailService
     }
     public function send(string $from, string $to, string $subject, string $template, array $context): void {
         // création du mail
-        $email = (new TemplatedEmail())
+        $xemail = (new TemplatedEmail())
             ->from($from)
             ->to($to)
             ->subject($subject)
             ->htmlTemplate("emails/$template.html.twig")
             ->context($context);
         // envoi du mail
-        $this->mailer->send($email);
+        $this->mailer->send($xemail);
     }
 }

@@ -148,6 +148,7 @@ h2 {
 .btnBack {
   background-color: var(--color-five);
   display: block;
+  text-align: center;
 }
 .btnBack:hover {
   font-weight: bold;

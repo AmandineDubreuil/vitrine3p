@@ -1,0 +1,28 @@
+{% extends 'emails/base_emails.html.twig' %}
+
+{% block body %}
+	<p>Bonjour !</p>
+
+	<p>Vous avez reçu une nouvelle demande :</p>
+	<p>
+		<span class="bold">Message de :</span>
+		{{nom}}
+		{% if societe %}
+			-
+			{{societe}}
+		{% endif %}
+	</p>
+	<p>
+		<span>Coordonnées :
+		</span>
+		{{telephone}}
+		-
+		{{mail}}</p>
+	<p>
+		<span class="bold">Objet :</span>
+		{{objet}}
+	</p>
+	<p class="">{{commentaire}}</p>
+
+
+{% endblock %}
