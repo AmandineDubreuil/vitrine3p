@@ -33,6 +33,34 @@ class RegistrationController extends AbstractController
         JWTService $jWTService,
         SendMailService $sendMailService,
     ): Response {
+
+        /* MODALE CONTACT */
+        if ($request->isMethod('POST') && $request->request->has('submitContact')) {
+
+            $civilite = $request->request->get("civilite");
+            $nom = $request->request->get("nom");
+            $mail = $request->request->get("mail");
+            $societe = $request->request->get("societe");
+            $telephone = $request->request->get("telephone");
+            $objet = $request->request->get("objet");
+            $commentaire = $request->request->get("commentaire");
+
+            $objetMail = 'Contact Vitrine3p.fr : ' . $objet;
+
+            $sendMailService->send(
+                $mail,
+                'contact@vitrine3p.fr',
+                $objetMail,
+                'contact',
+                compact('commentaire', 'nom', 'societe', 'telephone', 'mail', 'objet')
+
+            );
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
+
+            return $this->redirectToRoute('app_register');
+        }
+
+        /* REGISTRATION FORM */
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);

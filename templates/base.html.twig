@@ -23,11 +23,59 @@
 	</head>
 	<body>
 		{# **************
-						header 
-				*****************#}
+		modale contact 
+		*****************#}
 
-		<header class="menu">
-			<a href="{{path('app_contact')}}" class="btnEdit contact">Contact</a>
+		<div class="modal-container">
+			<div class="overlay modal-trigger"></div>
+			<div class="modal">
+				<button class="close-modal modal-trigger">X</button>
+				<h1>Formulaire de contact</h1>
+				<form method="POST">
+
+					<div class="form-field">
+						<label for="nom">Nom * :</label>
+						<input type="text" name="nom" id="nom" class="" required="required">
+					</div>
+
+					<div class="form-field">
+						<label for="societe">Société :</label>
+						<input type="text" name="societe" id="societe" class="">
+					</div>
+					<div class="form-field">
+						<label for="telephone">Téléphone * :</label>
+						<input type="text" name="telephone" id="telephone" class="" required="required">
+					</div>
+					<div class="form-field">
+						<label for="mail">E-mail * :</label>
+						<input type="email" name="mail" id="mail" class="" required="required">
+					</div>
+					<div class="form-field">
+						<label for="objet">Objet * :</label>
+						<input type="text" name="objet" id="objet" class="" required="required">
+					</div>
+					<div class="form-field">
+						<label for="commentaire">Commentaire * :</label>
+
+						<textarea name="commentaire" id="commentaire" cols="30" rows="10" class="form-control rounded-1" required="required"></textarea>
+					</div>
+					<div class="groupeBtn">
+						<input type="submit" value="Envoyer" name="submitContact" class="btn btnOk">
+					</div>
+				</form>
+				<p class="grey">* : champs requis</p>
+			</div>
+
+		</div>
+
+		{# **************
+		header 
+		*****************#}
+
+		<header
+			class="menu">
+			{# <a href="{{path('app_contact')}}" class="btnEdit contact">Contact</a> #}
+			<button class="contact btnEdit modal-trigger modal-btn">Contact</button>
 			<div class="navbar-fixed">
 				<nav class="navbar">
 					<div class="navbar-head">
@@ -71,8 +119,8 @@
 			</div>
 
 			{# **************
-							message flash 
-					*****************#}
+																									message flash 
+																							*****************#}
 
 			{% include "_partials/_flash.html.twig" %}
 			{% if app.user and app.user.isverified == false %}
@@ -85,26 +133,28 @@
 			{% endif %}
 		</header>
 		{# **************
-						main 
-				*****************#}
+																		main 
+																*****************#}
 
 		<main>
 			{% block body %}{% endblock %}
 		</main>
 
 		{# **************
-						footer 
-				*****************#}
+																		footer 
+																*****************#}
 		<footer>
 			<p>Copyright © 2023 - Vitrine3p</p>
 			<div>
 				<a href="{{ path('app_legal') }}" target="blank">Mentions légales</a>
 
-				/ <a href="{{ path('app_confidentialite') }}" target="blank">Politique de confidentialité</a>
+				/
+				<a href="{{ path('app_confidentialite') }}" target="blank">Politique de confidentialité</a>
 			</div>
 		</footer>
 		{% block javascripts %}
 			<script src="{{asset('./assets/js/menu.js')}}"></script>
+			<script src="{{asset('./assets/js/modaleContact.js')}}"></script>
 		{% endblock %}
 	</body>
 </html>

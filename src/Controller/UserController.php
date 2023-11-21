@@ -18,8 +18,36 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class UserController extends AbstractController
 {
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
-    {
+    public function index(
+        UserRepository $userRepository,
+        Request $request,
+        SendMailService $sendMailService
+    ): Response {
+        if ($request->isMethod('POST') && $request->request->has('submitContact')) {
+
+            $civilite = $request->request->get("civilite");
+            $nom = $request->request->get("nom");
+            $mail = $request->request->get("mail");
+            $societe = $request->request->get("societe");
+            $telephone = $request->request->get("telephone");
+            $objet = $request->request->get("objet");
+            $commentaire = $request->request->get("commentaire");
+
+            $objetMail = 'Contact Vitrine3p.fr : ' . $objet;
+
+            $sendMailService->send(
+                $mail,
+                'contact@vitrine3p.fr',
+                $objetMail,
+                'contact',
+                compact('commentaire', 'nom', 'societe', 'telephone', 'mail', 'objet')
+
+            );
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
+
+            return $this->redirectToRoute('app_user_index');
+        }
+
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
@@ -54,8 +82,43 @@ class UserController extends AbstractController
     // }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(
+        Request $request,
+        User $user,
+        EntityManagerInterface $entityManager,
+        SendMailService $sendMailService,
+    ): Response {
+
+        /* MODALE CONTACT */
+
+        if ($request->isMethod('POST') && $request->request->has('submitContact')) {
+
+
+            $civilite = $request->request->get("civilite");
+            $nom = $request->request->get("nom");
+            $mail = $request->request->get("mail");
+            $societe = $request->request->get("societe");
+            $telephone = $request->request->get("telephone");
+            $objet = $request->request->get("objet");
+            $commentaire = $request->request->get("commentaire");
+
+            $objetMail = 'Contact Vitrine3p.fr : ' . $objet;
+
+            $sendMailService->send(
+                $mail,
+                'contact@vitrine3p.fr',
+                $objetMail,
+                'contact',
+                compact('commentaire', 'nom', 'societe', 'telephone', 'mail', 'objet')
+
+            );
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
+
+            return $this->redirectToRoute('app_user_edit');
+        }
+
+        /* FORMULAIRE EDIT */
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -79,6 +142,40 @@ class UserController extends AbstractController
         SendMailService $sendMailService,
         JWTService $jWTService
     ): Response {
+
+        /* MODALE CONTACT */
+
+        if ($request->isMethod('POST') && $request->request->has('submitContact')) {
+$userId = $user->getId();
+
+
+            $civilite = $request->request->get("civilite");
+            $nom = $request->request->get("nom");
+            $mail = $request->request->get("mail");
+            $societe = $request->request->get("societe");
+            $telephone = $request->request->get("telephone");
+            $objet = $request->request->get("objet");
+            $commentaire = $request->request->get("commentaire");
+
+            $objetMail = 'Contact Vitrine3p.fr : ' . $objet;
+
+            $sendMailService->send(
+                $mail,
+                'contact@vitrine3p.fr',
+                $objetMail,
+                'contact',
+                compact('commentaire', 'nom', 'societe', 'telephone', 'mail', 'objet')
+
+            );
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
+
+            return $this->redirectToRoute('app_user_edit_email', [
+                'id' => $userId,
+            ], Response::HTTP_SEE_OTHER);
+        }
+
+        /* FORMULAIRE EDIT MAIL */
+
         $form = $this->createForm(UserEmailType::class, $user);
         $form->handleRequest($request);
 

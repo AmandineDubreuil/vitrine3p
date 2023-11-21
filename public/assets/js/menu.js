@@ -12,4 +12,3 @@ const showHideNavbar = () => {
 burger.addEventListener("click", showHideNavbar);
 closeBtn.addEventListener("click", showHideNavbar);
 
-console.dir(closeBtn);

@@ -28,8 +28,10 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
-    {
+
+    public function login(
+        AuthenticationUtils $authenticationUtils,
+    ): Response {
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
@@ -103,6 +105,36 @@ class SecurityController extends AbstractController
         UserAuthenticatorInterface $userAuthenticator,
         Authenticator $authenticator
     ): Response {
+// MODALE CONTACT
+if ($request->isMethod('POST') && $request->request->has('submitContact')) {
+        
+    $civilite = $request->request->get("civilite");
+    $nom = $request->request->get("nom");
+    $mail = $request->request->get("mail");
+    $societe = $request->request->get("societe");
+    $telephone = $request->request->get("telephone");
+    $objet = $request->request->get("objet");
+    $commentaire = $request->request->get("commentaire");
+
+    $objetMail = 'Contact Vitrine3p.fr : ' . $objet;
+
+    $sendMailService->send(
+        $mail,
+        'contact@vitrine3p.fr',
+        $objetMail,
+        'contact',
+        compact('commentaire', 'nom', 'societe', 'telephone', 'mail', 'objet')
+
+    );
+    $this->addFlash('success', 'Votre message a bien été envoyé.');
+
+    return $this->redirectToRoute('app_forgotten_password');   
+}
+
+
+// FORMULAIRE OUBLI PASS
+
+
         $form = $this->createForm(ResetPasswordRequestType::class);
         $form->handleRequest($request);
 
