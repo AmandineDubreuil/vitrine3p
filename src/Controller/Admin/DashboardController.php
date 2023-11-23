@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Equipes;
+use App\Entity\Formations;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -58,6 +59,10 @@ class DashboardController extends AbstractDashboardController
              MenuItem::linkToCrud('Voir Collaborateurs', 'fas fa-eye', Equipes::class)
         ]);
         yield MenuItem::section('Formations');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Ajout Formation', 'fas fa-plus', Formations::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Voir Formations', 'fas fa-eye', Formations::class)
+       ]);
         yield MenuItem::section('Utilisateurs');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Voir Utilisateurs', 'fas fa-eye', User::class)

@@ -41,7 +41,7 @@ class Formations
     #[ORM\Column(length: 100)]
     private ?string $satisfaction = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $effectif = null;
 
     #[ORM\Column(nullable: true)]
@@ -53,10 +53,10 @@ class Formations
     #[ORM\Column(length: 255)]
     private ?string $referentpedago = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $validation = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $acces = null;
 
     #[ORM\Column(length: 255)]
@@ -71,7 +71,7 @@ class Formations
     #[ORM\Column(type: Types::TEXT)]
     private ?string $programme = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
 
     #[ORM\Column]
