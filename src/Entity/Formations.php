@@ -50,9 +50,6 @@ class Formations
     #[ORM\Column(length: 255)]
     private ?string $modalitepedago = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $referentpedago = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $validation = null;
 
@@ -76,6 +73,9 @@ class Formations
 
     #[ORM\Column]
     private ?\DateTimeImmutable $modifiedAt = null;
+
+    #[ORM\ManyToOne(inversedBy: 'formations')]
+    private ?Equipes $referentpedagogique = null;
 
 
     public function getId(): ?int
@@ -227,18 +227,6 @@ class Formations
         return $this;
     }
 
-    public function getReferentpedago(): ?string
-    {
-        return $this->referentpedago;
-    }
-
-    public function setReferentpedago(?string $referentpedago): static
-    {
-        $this->referentpedago = $referentpedago;
-
-        return $this;
-    }
-
     public function getValidation(): ?string
     {
         return $this->validation;
@@ -334,5 +322,18 @@ class Formations
 
         return $this;
     }
+
+    public function getReferentpedagogique(): ?Equipes
+    {
+        return $this->referentpedagogique;
+    }
+
+    public function setReferentpedagogique(?Equipes $referentpedagogique): static
+    {
+        $this->referentpedagogique = $referentpedagogique;
+
+        return $this;
+    }
+    
 
 }

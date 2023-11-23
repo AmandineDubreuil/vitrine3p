@@ -56,16 +56,16 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Equipe');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
              MenuItem::linkToCrud('Ajout Collaborateur', 'fas fa-plus', Equipes::class)->setAction(Crud::PAGE_NEW),
-             MenuItem::linkToCrud('Voir Collaborateurs', 'fas fa-eye', Equipes::class)
+             MenuItem::linkToCrud('Consulter Collaborateurs', 'fas fa-eye', Equipes::class)
         ]);
         yield MenuItem::section('Formations');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajout Formation', 'fas fa-plus', Formations::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Voir Formations', 'fas fa-eye', Formations::class)
+            MenuItem::linkToCrud('Consulter Formations', 'fas fa-eye', Formations::class)
        ]);
         yield MenuItem::section('Utilisateurs');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Voir Utilisateurs', 'fas fa-eye', User::class)
+            MenuItem::linkToCrud('Consulter Utilisateurs', 'fas fa-eye', User::class)
        ]);
 
     }

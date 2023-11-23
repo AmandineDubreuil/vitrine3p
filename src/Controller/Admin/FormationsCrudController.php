@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class FormationsCrudController extends AbstractCrudController
@@ -140,7 +141,8 @@ class FormationsCrudController extends AbstractCrudController
             ->setColumns(3)
             ->hideOnIndex();
 
-        yield TextField::new('referentpedago', 'Référent pédagogique')
+        yield AssociationField::new('referentpedagogique')
+            ->setLabel('Référent pédagogique')
             ->setColumns(12)
             ->hideOnIndex();
 

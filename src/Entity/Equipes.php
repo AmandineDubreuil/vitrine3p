@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\EquipesRepository;
@@ -35,9 +37,21 @@ class Equipes
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $horaires = null;
 
+    #[ORM\OneToMany(mappedBy: 'referentpedagogique', targetEntity: Formations::class)]
+    private Collection $formations;
+
+    public function __construct()
+    {
+        $this->formations = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function __toString(): string
+    {
+        return $this->getNom();   
     }
 
     public function getNom(): ?string
@@ -120,6 +134,37 @@ class Equipes
     public function setHoraires(?string $horaires): static
     {
         $this->horaires = $horaires;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection<int, Formations>
+     */
+    public function getFormations(): Collection
+    {
+        return $this->formations;
+    }
+
+    public function addFormation(Formations $formation): static
+    {
+        if (!$this->formations->contains($formation)) {
+            $this->formations->add($formation);
+            $formation->setReferentpedagogique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormation(Formations $formation): static
+    {
+        if ($this->formations->removeElement($formation)) {
+            // set the owning side to null (unless already changed)
+            if ($formation->getReferentpedagogique() === $this) {
+                $formation->setReferentpedagogique(null);
+            }
+        }
 
         return $this;
     }
