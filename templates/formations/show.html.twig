@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formations{% endblock %}
+
+{% block body %}
+    <h1>Formations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formation.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ formation.titre }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ formation.reference }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ formation.duree }}</td>
+            </tr>
+            <tr>
+                <th>Public</th>
+                <td>{{ formation.public }}</td>
+            </tr>
+            <tr>
+                <th>Prerequis</th>
+                <td>{{ formation.prerequis }}</td>
+            </tr>
+            <tr>
+                <th>Tarif</th>
+                <td>{{ formation.tarif }}</td>
+            </tr>
+            <tr>
+                <th>Objectifs</th>
+                <td>{{ formation.objectifs }}</td>
+            </tr>
+            <tr>
+                <th>Reussite</th>
+                <td>{{ formation.reussite }}</td>
+            </tr>
+            <tr>
+                <th>Satisfaction</th>
+                <td>{{ formation.satisfaction }}</td>
+            </tr>
+            <tr>
+                <th>Effectif</th>
+                <td>{{ formation.effectif }}</td>
+            </tr>
+            <tr>
+                <th>Cpf</th>
+                <td>{{ formation.cpf ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Modalitepedago</th>
+                <td>{{ formation.modalitepedago }}</td>
+            </tr>
+            <tr>
+                <th>Validation</th>
+                <td>{{ formation.validation }}</td>
+            </tr>
+            <tr>
+                <th>Acces</th>
+                <td>{{ formation.acces }}</td>
+            </tr>
+            <tr>
+                <th>Referencesreglementaires</th>
+                <td>{{ formation.referencesreglementaires }}</td>
+            </tr>
+            <tr>
+                <th>Programme</th>
+                <td>{{ formation.programme }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ formation.photo }}</td>
+            </tr>
+            <tr>
+                <th>ModifiedAt</th>
+                <td>{{ formation.modifiedAt ? formation.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Moyenspedagogiques</th>
+                <td>{{ formation.moyenspedagogiques }}</td>
+            </tr>
+            <tr>
+                <th>Documents</th>
+                <td>{{ formation.documents }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formations_index') }}">back to list</a>
+{# 
+    <a href="{{ path('app_formations_edit', {'id': formation.id}) }}">edit</a>
+
+    {{ include('formations/_delete_form.html.twig') }} #}
+{% endblock %}

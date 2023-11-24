@@ -57,12 +57,6 @@ class Formations
     private ?string $acces = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $moyenspedago = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $documents = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $referencesreglementaires = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -76,6 +70,12 @@ class Formations
 
     #[ORM\ManyToOne(inversedBy: 'formations')]
     private ?Equipes $referentpedagogique = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $moyenspedagogiques = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $documents = null;
 
 
     public function getId(): ?int
@@ -251,30 +251,6 @@ class Formations
         return $this;
     }
 
-    public function getMoyenspedago(): ?string
-    {
-        return $this->moyenspedago;
-    }
-
-    public function setMoyenspedago(string $moyenspedago): static
-    {
-        $this->moyenspedago = $moyenspedago;
-
-        return $this;
-    }
-
-    public function getDocuments(): ?string
-    {
-        return $this->documents;
-    }
-
-    public function setDocuments(string $documents): static
-    {
-        $this->documents = $documents;
-
-        return $this;
-    }
-
     public function getReferencesreglementaires(): ?string
     {
         return $this->referencesreglementaires;
@@ -334,6 +310,30 @@ class Formations
 
         return $this;
     }
-    
+
+    public function getMoyenspedagogiques(): ?string
+    {
+        return $this->moyenspedagogiques;
+    }
+
+    public function setMoyenspedagogiques(string $moyenspedagogiques): static
+    {
+        $this->moyenspedagogiques = $moyenspedagogiques;
+
+        return $this;
+    }
+
+    public function getDocuments(): ?string
+    {
+        return $this->documents;
+    }
+
+    public function setDocuments(string $documents): static
+    {
+        $this->documents = $documents;
+
+        return $this;
+    }
+
 
 }

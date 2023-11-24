@@ -152,7 +152,7 @@ class FormationsCrudController extends AbstractCrudController
         yield TextField::new('validation', 'Validation')
             ->setColumns(12)
             ->hideOnIndex();
-        yield TextEditorField::new('moyenspedago', 'Moyens pédagogiques')
+        yield TextEditorField::new('moyenspedagogiques', 'Moyens pédagogiques')
             ->setColumns(12)
             ->hideOnIndex();
         yield TextEditorField::new('documents', 'Liste des documents remis au stagiaire')
