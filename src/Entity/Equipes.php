@@ -19,7 +19,7 @@ class Equipes
     #[ORM\Column(length: 30)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 255)]
     private ?string $fonction = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
