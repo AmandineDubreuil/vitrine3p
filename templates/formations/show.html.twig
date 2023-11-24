@@ -1,102 +1,152 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formations{% endblock %}
+{% block title %}
+	{{ formation.titre }}
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+	{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
+	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
+	<link rel="stylesheet" href="{{asset('./assets/css/formationStyle.css')}}">
+
+{% endblock %}
 
 {% block body %}
-    <h1>Formations</h1>
+	{# Entete #}
+	<section class="premieresection enteteFormation">
+		<div class="titre">
+			<h1>{{ formation.titre }}</h1>
+			<p>Réf.
+				{{ formation.reference }}
+				- actualisée le
+				{{ formation.modifiedAt ? formation.modifiedAt|date('d-m-Y') : '' }}</p>
+		</div>
+		<div class="entete">
+			<div class="blockDf">
+				<p class="bold">Durée :</p>
+				<p class="padleft">{{ formation.duree }}</p>
+			</div>
+			<div class="blockDf">
+				<p class="bold">Date des sessions :</p>
+				<p class="padleft">Nous consulter</p>
+			</div>
+			<div class="blockDf">
+				<p class="bold">Public :</p>
+				<p class="padleft">{{ formation.public }}</p>
+			</div>
+			<div class="blockDf">
+				<p class="bold">Prérequis :</p>
+				<p class="padleft">{{ formation.prerequis }}</p>
+			</div>
+			<div class="blockDf">
+				<p class="bold">Tarif :</p>
+				<p class="padleft">{{ formation.tarif | raw}}</p>
+			</div>
+			<div class="blockDf">
+				<p class="bold">Objectifs :</p>
+				<p class="padleft">{{ formation.objectifs | raw }}</p>
+			</div>
+			<div class="taux">
+				<div class="blockDf reussite">
+					<p class="bold">Taux de réussite :</p>
+					<p class="padleft">{{ formation.reussite }}</p>
+				</div>
+				<div class="blockDf ">
+					<p class="bold">Taux de satisfaction :</p>
+					<p class="padleft">{{ formation.satisfaction }}</p>
+				</div>
+			</div>
+		</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ formation.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ formation.titre }}</td>
-            </tr>
-            <tr>
-                <th>Reference</th>
-                <td>{{ formation.reference }}</td>
-            </tr>
-            <tr>
-                <th>Duree</th>
-                <td>{{ formation.duree }}</td>
-            </tr>
-            <tr>
-                <th>Public</th>
-                <td>{{ formation.public }}</td>
-            </tr>
-            <tr>
-                <th>Prerequis</th>
-                <td>{{ formation.prerequis }}</td>
-            </tr>
-            <tr>
-                <th>Tarif</th>
-                <td>{{ formation.tarif }}</td>
-            </tr>
-            <tr>
-                <th>Objectifs</th>
-                <td>{{ formation.objectifs }}</td>
-            </tr>
-            <tr>
-                <th>Reussite</th>
-                <td>{{ formation.reussite }}</td>
-            </tr>
-            <tr>
-                <th>Satisfaction</th>
-                <td>{{ formation.satisfaction }}</td>
-            </tr>
-            <tr>
-                <th>Effectif</th>
-                <td>{{ formation.effectif }}</td>
-            </tr>
-            <tr>
-                <th>Cpf</th>
-                <td>{{ formation.cpf ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Modalitepedago</th>
-                <td>{{ formation.modalitepedago }}</td>
-            </tr>
-            <tr>
-                <th>Validation</th>
-                <td>{{ formation.validation }}</td>
-            </tr>
-            <tr>
-                <th>Acces</th>
-                <td>{{ formation.acces }}</td>
-            </tr>
-            <tr>
-                <th>Referencesreglementaires</th>
-                <td>{{ formation.referencesreglementaires }}</td>
-            </tr>
-            <tr>
-                <th>Programme</th>
-                <td>{{ formation.programme }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ formation.photo }}</td>
-            </tr>
-            <tr>
-                <th>ModifiedAt</th>
-                <td>{{ formation.modifiedAt ? formation.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Moyenspedagogiques</th>
-                <td>{{ formation.moyenspedagogiques }}</td>
-            </tr>
-            <tr>
-                <th>Documents</th>
-                <td>{{ formation.documents }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<button class="btnEdit modal-trigger modal-btn">Contactez-nous</button>
+	</section>
+	{# Tableau programme/formation #}
+	<section class="tableauProgramme">
+		<ul class="enteteTableauProgramme">
+			<li id="formation" class="selected">
+				<a href="#tabs-1">Formation</a>
+			</li>
+			<li id="programme" class="">
+				<a href="#tabs-2">Programme</a>
+			</li>
+		</ul>
+		<div class="bodyTableauProgramme">
+			<div id="tabs-1">
+				{% if formation.effectif %}
+					<div class="blockDf ">
+						<p class="bold">Effectif :</p>
+						<p class="padleft">{{ formation.effectif }}</p>
+					</div>
+				{% endif %}
+				<div class="blockDf ">
+					<p class="bold">Éligible CPF :</p>
+					<p class="padleft">{{ formation.cpf ? 'Oui' : 'Non' }}</p>
+				</div>
+				<div class="blockDf ">
+					<p class="bold">Modalités pédagogiques :</p>
+					<p class="padleft">{{ formation.modalitepedago }}</p>
+				</div>
 
-    <a href="{{ path('app_formations_index') }}">back to list</a>
-{# 
-    <a href="{{ path('app_formations_edit', {'id': formation.id}) }}">edit</a>
+				<div class="blockDf ">
+					<p class="bold">Modalités et délais d'accès :</p>
+					<p class="padleft">
+						{% if formation.acces %}
+							{{ formation.acces }}
+						{% else %}
+							Inscription par retour de la convention de formation complétée, signée et date au plus tard 15 jours avant le début de la formation.
+						{% endif %}
+					</p>
+				</div>
+				<div class="blockDf ">
+					<p class="bold">Référent pédagogique :</p>
+					<p class="padleft">{{ formation.referentpedagogique.nom }}
+						-
+						{{ formation.referentpedagogique.fonction }}</p>
+				</div>
+				{% if formation.validation %}
+					<div class="blockDf ">
+						<p class="bold">Validation :</p>
+						<p class="padleft">{{ formation.validation }}</p>
+					</div>
+				{% endif %}
+				<div class="blockDf ">
+					<p class="bold">Moyens pédagogiques et techniques :</p>
+					<p class="padleft">{{ formation.moyenspedagogiques | raw }}</p>
+				</div>
+				<div class="blockDf ">
+					<p class="bold">Documents délivrés suite à l'évaluation des acquis :</p>
+					<p class="padleft">{{ formation.documents | raw }}</p>
+				</div>
 
-    {{ include('formations/_delete_form.html.twig') }} #}
+				{% if formation.referencesreglementaires %}
+					<div class="blockDf ">
+						<p class="bold">Références réglementaires :</p>
+						<p class="padleft">{{ formation.referencesreglementaires | raw  }}</p>
+					</div>
+				{% endif %}
+				<div class="handicap">
+					<p class="handicapTitre">Accessibilité et handicap</p>
+					<p>Vous êtes en situation de handicap ?</p>
+					<p>N’hésitez à contacter notre référent pédagogique afin que nous puissions nous adapter au mieux à votre situation.</p>
+				</div>
+			</div>
+			<div id="tabs-2">
+				<h2>Programme de la formation</h2>
+				<div class="programme">{{ formation.programme | raw }}</div>
+			</div>
+		</div>
+
+	</section>
+
+{% endblock %}
+{% block javascripts %}
+	<script src="{{asset('./assets/js/menu.js')}}"></script>
+	<script src="{{asset('./assets/js/modaleContact.js')}}"></script>
+	<script src="{{asset('./assets/js/tableauProgramme.js')}}"></script>
+
 {% endblock %}

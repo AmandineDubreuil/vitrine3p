@@ -56,7 +56,7 @@ class Formations
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $acces = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $referencesreglementaires = null;
 
     #[ORM\Column(type: Types::TEXT)]

@@ -1,0 +1,120 @@
+/* Entete */
+
+.enteteFormation {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+.enteteFormation h1 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.blockDf {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.blockDf p {
+  padding-bottom: 0.2rem;
+}
+.blockDf .padleft {
+  padding-left: 1rem;
+}
+.blockDf ul {
+  padding-left: 1rem;
+}
+.blockDf li {
+  list-style-type: disc;
+}
+.enteteFormation button {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 0;
+}
+
+/* Tableau */
+
+.enteteTableauProgramme {
+  width: 18rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.enteteTableauProgramme li {
+  border: 1px var(--color-four) solid;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  width: 9rem;
+  text-align: center;
+}
+.enteteTableauProgramme li:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--color-one);
+}
+
+.enteteTableauProgramme .selected {
+  background-color: var(--color-three);
+}
+.bodyTableauProgramme {
+  width: 95%;
+  border: 1px grey solid;
+  border-radius: 0 10px 10px 10px;
+  padding: 1rem;
+}
+
+.bodyTableauProgramme .programme li {
+  list-style-type: disc;
+}
+.bodyTableauProgramme .programme ul {
+  padding-left: 1.5rem;
+}
+.bodyTableauProgramme h2 {
+text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.bodyTableauProgramme .handicap p{
+    padding-bottom: 0;
+}
+.bodyTableauProgramme .handicapTitre {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+#tabs-1,
+#tabs-2 {
+  padding-bottom: 1rem;
+}
+#tabs-2 {
+  display: none;
+}
+
+/* *********************** 
+   RESPONSIVE DESKTOP
+   ************************ */
+
+@media screen and (min-width: 576px) {
+  /* entete */
+  .enteteFormation .entete .blockDf .bold {
+    width: 10rem;
+  }
+  .enteteFormation .entete .taux {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .enteteFormation .entete .taux .reussite {
+    margin-right: 10rem;
+  }
+
+  /* Tableau */
+
+  /*fin responsive*/
+}
