@@ -30,7 +30,7 @@
   padding-bottom: 1rem;
 }
 
-.cards .card .texteCard .enteteTexteCard h2 {
+.cards .card .texteCard .enteteTexteCard h2, .cards .card .texteCard .enteteTexteCard h3 {
   padding-bottom: 1rem;
 }
 .cards .card .texteCard .enteteTexteCard p,
@@ -52,6 +52,11 @@
   right: 1rem;
   bottom: 1rem;
 }
+.cards.small .card .imgCard {
+  height: 30vh;
+}
+
+
 /* *********************** 
    RESPONSIVE DESKTOP
    ************************ */

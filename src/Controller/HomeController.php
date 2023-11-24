@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Formations;
+use App\Repository\FormationsRepository;
 use App\Service\SendMailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,8 +16,8 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(
         Request $request,
-        SendMailService $sendMailService
-
+        SendMailService $sendMailService,
+      FormationsRepository $formationsRepository,
     ): Response {
         /* MODALE CONTACT */
 
@@ -44,8 +46,13 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
+        /* FORMATIONS */
+         $formations = $formationsRepository->findlastXFormations(3); 
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'formations' => $formations,
         ]);
     }
 }

@@ -21,6 +21,20 @@ class FormationsRepository extends ServiceEntityRepository
         parent::__construct($registry, Formations::class);
     }
 
+   /**
+    * @return Formations[] Retourne un tableau des X dernieres formations ajoutées par le biais de leur id
+    */
+   public function findlastXFormations($value): array
+   {
+       return $this->createQueryBuilder('f')
+           ->orderBy('f.id', 'DESC')
+           ->setMaxResults($value)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
+
 //    /**
 //     * @return Formations[] Returns an array of Formations objects
 //     */

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {{ encore_entry_link_tags('app') }}
 	<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('./assets/css/baseStyle.css')}}">
-
+	<link rel="stylesheet" href="{{asset('./assets/css/cardsStyle.css')}}">
 	<link rel="stylesheet" href="{{asset('./assets/css/homeStyle.css')}}">
 
 {% endblock %}
@@ -50,8 +50,27 @@
 	</section>
 	<section class="formations">
 		<h2>Nos formations</h2>
-		<div>les card des 3 dernières formations enregistrées</div>
+		<div class="cards small">
+			{% for formation in formations | slice(0) %}
+				<div class="card">
+					<div class="imgCard"><img src="{{asset('./assets/uploads/formation/')}}{{ formation.photo }}" alt="{{ formation.titre }}"></div>
+					<div class="texteCard">
+						<div class="enteteTexteCard">
+							<div class="titreTexteCard">
+								<h3>{{ formation.titre }}</h3>
+							</div>
+						</div>
+						<div class="btnDf">
+							<a href="{{ path('app_formations_show', {'id': formation.id}) }}" class="btnOk">En savoir plus</a>
+						</div>
+					</div>
+				</div>
+
+			{% else %}
+				<p>Aucune formation proposée aujourd'hui</p>
+			{% endfor %}
+
+		</div>
 	</section>
 
 {% endblock %}
-
