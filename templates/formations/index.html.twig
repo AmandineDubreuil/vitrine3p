@@ -22,21 +22,27 @@
 		<div class="cards">
 			{% for formation in formations %}
 				<div class="card">
-					<div class="imgCard"><img src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature') }}" alt="{{ formation.titre }}"></div>
+					<a href="{{ path('app_formations_show', {'id': formation.id}) }}">
+						<div class="imgCard"><img src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature') }}" alt="{{ formation.titre }}"></div>
+					</a>
 					<div class="texteCard">
-						<div class="enteteTexteCard">
-							<div class="titreTexteCard">
-								<h2>{{ formation.titre }}</h2>
+						<a href="{{ path('app_formations_show', {'id': formation.id}) }}">
+							<div class="enteteTexteCard">
+								<div class="titreTexteCard">
+									<h2>{{ formation.titre }}</h2>
+								</div>
+								<p>durée :
+									{{ formation.duree }}</p>
+								<p>public :
+									{{ formation.public }}</p>
 							</div>
-							<p>durée :
-								{{ formation.duree }}</p>
-							<p>public :
-								{{ formation.public }}</p>
-						</div>
-						<div class="corpsTexteCard">
-							<p>Objectif :</p>
-							<p>{{ formation.objectifs | raw }}</p>
-						</div>
+						</a>
+						<a href="{{ path('app_formations_show', {'id': formation.id}) }}">
+							<div class="corpsTexteCard">
+								<p>Objectif :</p>
+								<p>{{ formation.objectifs | raw }}</p>
+							</div>
+						</a>
 						<div class="btnDf">
 							<a href="{{ path('app_formations_show', {'id': formation.id}) }}" class="btnOk">En savoir plus</a>
 						</div>
