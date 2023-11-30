@@ -22,7 +22,7 @@
 		<div class="cards">
 			{% for formation in formations %}
 				<div class="card">
-					<div class="imgCard"><img src="{{asset('./assets/uploads/formation/')}}{{ formation.photo }}" alt="{{ formation.titre }}"></div>
+					<div class="imgCard"><img src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature') }}" alt="{{ formation.titre }}"></div>
 					<div class="texteCard">
 						<div class="enteteTexteCard">
 							<div class="titreTexteCard">

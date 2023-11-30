@@ -3,22 +3,23 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Equipes;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use Doctrine\ORM\EntityManagerInterface;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EquipesCrudController extends AbstractCrudController
 {
-
-    public const EQUIPES_BASE_PATH = 'assets/uploads/equipe';
-    public const EQUIPES_UPLOAD_DIR = 'public/assets/uploads/equipe';
 
     public static function getEntityFqcn(): string
     {
@@ -124,10 +125,27 @@ class EquipesCrudController extends AbstractCrudController
             ->hideOnIndex();
         yield TelephoneField::new('phone', 'Téléphone');
         yield EmailField::new('email');
-        yield ImageField::new('photo')
-            ->setBasePath(self::EQUIPES_BASE_PATH)
-            ->setUploadDir(self::EQUIPES_UPLOAD_DIR)
-            ->setSortable(false);
+        yield TextField::new('attachmentFile')
+            ->setLabel('Photo')
+            ->setFormType(VichImageType::class)
+            ->onlyOnForms();
+        yield ImageField::new('attachment')
+            ->onlyOnIndex()
+            ->setLabel('Photo')
+            ->setBasePath('assets/uploads/equipe')
+            ->setUploadDir('public/assets/uploads/equipe');
+        yield DateTimeField::new('UpdatedAt')
+            ->setLabel('date de modification')
+            ->hideOnForm()
+            ->hideOnIndex();
         yield TextField::new('horaires');
+    }
+
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        if (!$entityInstance instanceof Equipes) return;
+        $entityInstance->setUpdatedAt(new \DateTimeImmutable);
+        //   dd($entityInstance);
+        parent::persistEntity($entityManager, $entityInstance);
     }
 }

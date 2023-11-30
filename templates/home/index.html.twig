@@ -19,7 +19,7 @@
 {% block body %}
 
 	<section class="entete premieresection">
-		<div class="enteteImg">
+		<div class="enteteImg" >
 			<div>
 				<h1 id="h1Accueil">Organisme de formation</h1>
 				<h2>Nous sommes un organisme de formation</h2>
@@ -36,11 +36,11 @@
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, vero suscipit. Labore rerum hic porro quam dicta, molestias, nesciunt dignissimos, unde delectus quos nostrum at saepe iure tenetur eaque eligendi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quaerat itaque odio esse cupiditate excepturi laboriosam vel, repellendus culpa nisi commodi sit earum voluptate consectetur cum iure mollitia quia! Esse?
 			</p>
 			<div class="image">
-				<img src="{{asset('./assets/img/trousse.jpg')}}" alt="valise 1er secours"></div>
+				<img src="{{asset('./assets/img/trousse.jpg')| imagine_filter('miniature')}}" alt="valise 1er secours"></div>
 		</div>
 		<div class="paragraphe">
 			<div class="image">
-				<img src="{{asset('./assets/img/santeMentale.jpg')}}" alt="santé mentale"></div>
+				<img src="{{asset('./assets/img/santeMentale.jpg')| imagine_filter('miniature')}}" alt="santé mentale"></div>
 
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, vero suscipit. Labore rerum hic porro quam dicta, molestias, nesciunt dignissimos, unde delectus quos nostrum at saepe iure tenetur eaque eligendi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quaerat itaque odio esse cupiditate excepturi laboriosam vel, repellendus culpa nisi commodi sit earum voluptate consectetur cum iure mollitia quia! Esse?
 			</p>
@@ -53,7 +53,10 @@
 		<div class="cards small">
 			{% for formation in formations | slice(0) %}
 				<div class="card">
-					<div class="imgCard"><img src="{{asset('./assets/uploads/formation/')}}{{ formation.photo }}" alt="{{ formation.titre }}"></div>
+					<div class="imgCard">
+					<img src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature')}}" alt="{{formation.titre}}">
+					{# <img src="{{asset('./assets/uploads/formation/')}}{{ formation.photo }}" alt="{{ formation.titre }}"> #}
+					</div>
 					<div class="texteCard">
 						<div class="enteteTexteCard">
 							<div class="titreTexteCard">

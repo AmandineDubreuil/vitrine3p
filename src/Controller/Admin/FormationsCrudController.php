@@ -3,22 +3,22 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Formations;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class FormationsCrudController extends AbstractCrudController
 {
-    public const FORMATIONS_BASE_PATH = 'assets/uploads/formation';
-    public const FORMATIONS_UPLOAD_DIR = 'public/assets/uploads/formation';
 
     public static function getEntityFqcn(): string
     {
@@ -108,7 +108,7 @@ class FormationsCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInPlural('Formations')
             ->setEntityLabelInSingular('Formation')
-            ->setPageTitle('index', 'Vitrine3p - Administration des Collaborateurs');
+            ->setPageTitle('index', 'Vitrine3p - Administration des Formations');
     }
 
     public function configureFields(string $pageName): iterable
@@ -172,16 +172,32 @@ class FormationsCrudController extends AbstractCrudController
             ->setColumns(12)
             ->hideOnIndex();
         yield TextField::new('reussite', 'Tx de réussite')
-            ->setColumns(3)
+            ->setColumns(6)
             ->hideOnIndex();
         yield TextField::new('satisfaction', 'Tx de satisfaction')
-            ->setColumns(3)
+            ->setColumns(6)
             ->hideOnIndex();
+        yield TextField::new('attachmentFile')
+            ->setLabel('Photo')
+            ->setFormType(VichImageType::class)
+            ->onlyOnForms();
+        yield ImageField::new('attachment')
+            ->onlyOnIndex()
+            ->setLabel('Photo')
+            ->setBasePath('assets/uploads/formation')
+            ->setUploadDir('public/assets/uploads/formation');
 
-        yield ImageField::new('photo')
-            ->setBasePath(self::FORMATIONS_BASE_PATH)
-            ->setUploadDir(self::FORMATIONS_UPLOAD_DIR)
-            ->setSortable(false);
-        yield DateField::new('modifiedAt', 'Date de mise à jour');
+        yield DateField::new('modifiedAt')
+            ->setLabel('date de modification')
+            ->hideOnForm()
+            ->hideOnIndex();
+    }
+
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        if (!$entityInstance instanceof Formations) return;
+        $entityInstance->setModifiedAt(new \DateTimeImmutable());
+        //   dd($entityInstance);
+        parent::persistEntity($entityManager, $entityInstance);
     }
 }

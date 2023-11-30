@@ -29,7 +29,7 @@ class DashboardController extends AbstractDashboardController
         //return $this->render('admin/dashboard.html.twig');
 
         $url = $this->adminUrlGenerator
-            ->setController(EquipesCrudController::class)
+            ->setController(FormationsCrudController::class)
             ->generateUrl();
 
         // Option 1. You can make your dashboard redirect to some common page of your backend

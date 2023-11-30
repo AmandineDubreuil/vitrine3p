@@ -1,0 +1,21 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        equipe_images:
+            uri_prefix: '%equipe_images%'
+            upload_destination: '%kernel.project_dir%/public%equipe_images%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            # sécurise la suppression des fichiers, à adapter au client
+            delete_on_update: true
+            delete_on_remove: true
+
+        formation_images:
+            uri_prefix: '%formation_images%'
+            upload_destination: '%kernel.project_dir%/public%formation_images%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            # sécurise la suppression des fichiers, à adapter au client
+            delete_on_update: true
+            delete_on_remove: true
