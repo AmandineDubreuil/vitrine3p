@@ -19,7 +19,7 @@
 {% block body %}
 
 	<section class="entete premieresection">
-		<div class="enteteImg" >
+		<div class="enteteImg" style="background-image: url('{{asset('./assets/img/accueil.jpeg')| imagine_filter('scaleAccueil')}}">
 			<div>
 				<h1 id="h1Accueil">Organisme de formation</h1>
 				<h2>Nous sommes un organisme de formation</h2>
@@ -53,16 +53,21 @@
 		<div class="cards small">
 			{% for formation in formations | slice(0) %}
 				<div class="card">
-					<div class="imgCard">
-					<img src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature')}}" alt="{{formation.titre}}">
-					{# <img src="{{asset('./assets/uploads/formation/')}}{{ formation.photo }}" alt="{{ formation.titre }}"> #}
-					</div>
-					<div class="texteCard">
-						<div class="enteteTexteCard">
-							<div class="titreTexteCard">
-								<h3>{{ formation.titre }}</h3>
-							</div>
+					<a href="{{ path('app_formations_show', {'id': formation.id}) }}">
+						<div class="imgCard">
+							<img
+							src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature')}}" alt="{{formation.titre}}">
+						{# <img src="{{asset('./assets/uploads/formation/')}}{{ formation.photo }}" alt="{{ formation.titre }}"> #}
 						</div>
+					</a>
+					<div class="texteCard">
+						<a href="{{ path('app_formations_show', {'id': formation.id}) }}" class="btnOk">
+							<div class="enteteTexteCard">
+								<div class="titreTexteCard">
+									<h3>{{ formation.titre }}</h3>
+								</div>
+							</div>
+						</a>
 						<div class="btnDf">
 							<a href="{{ path('app_formations_show', {'id': formation.id}) }}" class="btnOk">En savoir plus</a>
 						</div>

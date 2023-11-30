@@ -4,7 +4,7 @@
 
 }
 .enteteImg{
-    background-image: url('../../assets/img/accueil-mobile.jpg');
+    /* background-image: url('../../assets/img/accueil-mobile.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,7 +46,7 @@ h2{
 
 @media screen and (min-width: 576px) {
   .enteteImg{
-    background-image: url('../../assets/img/accueil.jpeg');
+    /* background-image: url('../../assets/img/accueil.jpeg'); */
     align-items: center;
     padding-bottom: 0;
 
