@@ -20,7 +20,7 @@
   padding-bottom: 0.2rem;
 }
 .blockDf .padleft {
-  
+
   padding-left: 1rem;
 }
 .blockDf ul {
@@ -36,7 +36,9 @@
   bottom: 1rem;
   z-index: 0;
 }
-
+.blockEntete .image {
+  display: none;
+}
 /* Tableau */
 
 .enteteTableauProgramme {
@@ -114,6 +116,17 @@ text-align: center;
   }
   .enteteFormation .entete .taux .reussite {
     margin-right: 10rem;
+  }
+  .blockEntete .entete {
+    width: 70%;
+  }
+  .blockEntete .image {
+    position: absolute;
+    top: 7.5rem;
+    right: 1rem;
+    display: block;
+    width: 25%;
+
   }
 
   /* Tableau */

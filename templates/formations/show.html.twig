@@ -26,43 +26,47 @@
 				- actualisée le
 				{{ formation.modifiedAt ? formation.modifiedAt|date('d-m-Y') : '' }}</p>
 		</div>
-		<div class="entete">
-			<div class="blockDf">
-				<p class="bold">Durée :</p>
-				<p class="padleft">{{ formation.duree }}</p>
-			</div>
-			<div class="blockDf">
-				<p class="bold">Date des sessions :</p>
-				<p class="padleft">Nous consulter</p>
-			</div>
-			<div class="blockDf">
-				<p class="bold">Public :</p>
-				<p class="padleft">{{ formation.public }}</p>
-			</div>
-			<div class="blockDf">
-				<p class="bold">Prérequis :</p>
-				<p class="padleft">{{ formation.prerequis }}</p>
-			</div>
-			<div class="blockDf">
-				<p class="bold">Tarif :</p>
-				<p class="padleft">{{ formation.tarif | raw}}</p>
-			</div>
-			<div class="blockDf">
-				<p class="bold">Objectifs :</p>
-				<p class="padleft">{{ formation.objectifs | raw }}</p>
-			</div>
-			<div class="taux">
-				<div class="blockDf reussite">
-					<p class="bold">Taux de réussite :</p>
-					<p class="padleft">{{ formation.reussite }}</p>
+		<div class="blockEntete">
+			<div class="entete">
+				<div class="blockDf">
+					<p class="bold">Durée :</p>
+					<p class="padleft">{{ formation.duree }}</p>
 				</div>
-				<div class="blockDf ">
-					<p class="bold">Taux de satisfaction :</p>
-					<p class="padleft">{{ formation.satisfaction }}</p>
+				<div class="blockDf">
+					<p class="bold">Date des sessions :</p>
+					<p class="padleft">Nous consulter</p>
 				</div>
+				<div class="blockDf">
+					<p class="bold">Public :</p>
+					<p class="padleft">{{ formation.public }}</p>
+				</div>
+				<div class="blockDf">
+					<p class="bold">Prérequis :</p>
+					<p class="padleft">{{ formation.prerequis }}</p>
+				</div>
+				<div class="blockDf">
+					<p class="bold">Tarif :</p>
+					<p class="padleft">{{ formation.tarif | raw}}</p>
+				</div>
+				<div class="blockDf">
+					<p class="bold">Objectifs :</p>
+					<p class="padleft">{{ formation.objectifs | raw }}</p>
+				</div>
+				<div class="taux">
+					<div class="blockDf reussite">
+						<p class="bold">Taux de réussite :</p>
+						<p class="padleft">{{ formation.reussite }}</p>
+					</div>
+					<div class="blockDf ">
+						<p class="bold">Taux de satisfaction :</p>
+						<p class="padleft">{{ formation.satisfaction }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="image">
+				<img src="{{vich_uploader_asset(formation, 'attachmentFile') | imagine_filter('miniature')}}" alt="{{ formation.titre }}">
 			</div>
 		</div>
-
 		<button class="btnAdd modal-trigger modal-btn">Contactez-nous</button>
 	</section>
 	{# Tableau programme/formation #}
