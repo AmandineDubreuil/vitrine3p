@@ -1,56 +1,87 @@
 /* Home */
 .entete {
-    padding: 0;
-
+  padding: 0;
 }
-.enteteImg{
-    /* background-image: url('../../assets/img/accueil-mobile.jpg'); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-bottom: 2rem;
-  }
-#h1Accueil{
+.enteteImg {
+  /* background-image: url('../../assets/img/accueil-mobile.jpg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+#h1Accueil {
   font-size: 3rem;
-  font-family: 'Lato-black', Arial, Helvetica, sans-serif;
+  font-family: "Lato-black", Arial, Helvetica, sans-serif;
   margin-right: 3rem;
   margin-left: 1rem;
 }
-h2{
+h2 {
   margin-right: 3rem;
   margin-left: 1rem;
+}
 
+/* typing h2*/
+
+.typing span {
+  position: relative;
+  font-size: 1.3rem;
+  color: var(--color-two-dark);
 }
-  .descriptif .paragraphe{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.typing span::before {
+  content: "";
+  right: -8px;
+  top: 50%;
+  position: absolute;
+  height: 30px;
+  width: 2px;
+  background-color: var(--color-two-dark);
+  transform: translateY(-45%);
+  animation: blink 0.7s infinite;
+}
+
+.typing span.stop-blinking::before {
+  animation: none;
+}
+
+
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
-  .descriptif .paragraphe p{
-    width: 60%;
-  }
-  .descriptif .paragraphe .image {
+}
+
+/*descriptif*/
+
+.descriptif .paragraphe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.descriptif .paragraphe p {
+  width: 60%;
+}
+.descriptif .paragraphe .image {
   width: 35%;
   max-width: 30rem;
-  }
+}
 
-  /* *********************** 
+/* *********************** 
    RESPONSIVE DESKTOP
    ************************ */
 
 @media screen and (min-width: 576px) {
-  .enteteImg{
-    /* background-image: url('../../assets/img/accueil.jpeg'); */
-    align-items: center;
+  .enteteImg {
     padding-bottom: 0;
-
   }
-
+  .enteteImg div {
+    margin-left: 14rem;
+  }
   /*fin responsive*/
 }

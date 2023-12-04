@@ -179,10 +179,11 @@ class FormationsCrudController extends AbstractCrudController
             ->hideOnIndex();
         yield TextField::new('attachmentFile')
             ->setLabel('Photo')
+            ->setHelp('Attention, pour ne pas alourdir le site, l\'image ne doit pas dépasser 2MB, sinon elle n\'apparait pas.')
             ->setFormType(VichImageType::class)
             ->onlyOnForms();
         yield ImageField::new('attachment')
-            ->onlyOnIndex()
+            ->hideOnForm()
             ->setLabel('Photo')
             ->setBasePath('assets/uploads/formation')
             ->setUploadDir('public/assets/uploads/formation');

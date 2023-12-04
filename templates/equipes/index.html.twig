@@ -25,14 +25,19 @@
 
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quas blanditiis, ius incidunt ea accusantium nostrum quidem a voluptatem.</p>
 	</section>
-	<section class="collaborateurs">
+	<section
+		class="collaborateurs">
 
-
+		{# C:\wamp64\www\vitrine3p\public\media\cache\miniature\assets\uploads\equipe #}
 		{% for collaborateur in equipes %}
 			<div class="collaborateur">
 				<div class="imageRond">
-					<img src="{{vich_uploader_asset(collaborateur, 'attachmentFile') | imagine_filter('miniature')}}" alt="{{collaborateur.nom}}">
-					{# <img src="{{asset('./assets/uploads/equipe/')}}{{collaborateur.attachment}}" alt="{{collaborateur.nom}}"> #}
+
+					<img
+					src="{{vich_uploader_asset(collaborateur, 'attachmentFile') | imagine_filter('miniature')}}" alt="{{collaborateur.nom}}">
+
+
+				{# <img src="{{asset('./assets/uploads/equipe/')}}{{collaborateur.attachment}}" alt="{{collaborateur.nom}}"> #}
 				</div>
 				<div class="description">
 					<h2>{{collaborateur.nom}}</h2>

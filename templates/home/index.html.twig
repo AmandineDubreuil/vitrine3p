@@ -21,8 +21,10 @@
 	<section class="entete premieresection">
 		<div class="enteteImg" style="background-image: url('{{asset('./assets/img/accueil.jpeg')| imagine_filter('scaleAccueil')}}">
 			<div>
-				<h1 id="h1Accueil">Organisme de formation</h1>
-				<h2>Nous sommes un organisme de formation</h2>
+				<h1 id="h1Accueil">Vitrine3p</h1>
+				<h2 class="typing">Nous sommes <span></span>
+				</h2>
+
 			</div>
 		</div>
 
@@ -82,3 +84,6 @@
 	</section>
 
 {% endblock %}
+		{% block javascripts %}
+			<script src="{{asset('./assets/js/typingHome.js')}}"></script>
+		{% endblock %}
