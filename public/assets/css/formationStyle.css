@@ -2,7 +2,7 @@
 
 .enteteFormation {
   position: relative;
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
 }
 
 .enteteFormation h1 {
@@ -20,6 +20,7 @@
   padding-bottom: 0.2rem;
 }
 .blockDf .padleft {
+  
   padding-left: 1rem;
 }
 .blockDf ul {
@@ -30,7 +31,8 @@
 }
 .enteteFormation button {
   position: absolute;
-  right: 1rem;
+  right: 50%;
+  transform: translateX(50%);
   bottom: 1rem;
   z-index: 0;
 }

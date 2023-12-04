@@ -3,23 +3,32 @@
   padding: 0;
 }
 .enteteImg {
-  /* background-image: url('../../assets/img/accueil-mobile.jpg'); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  height: 80vh;
+  position: relative;
+  height: 40vh;
   width: 100%;
-  display: flex;
+  overflow: hidden;
+  /* display: flex;
   justify-content: flex-start;
-  align-items: center;
-  padding-bottom: 2rem;
+  align-items: center; */
+}
+
+.enteteImg img {
+  opacity: 15%;
+  filter: sepia(100%);
+  height: max-content;
+  box-sizing: unset;
+}
+.enteteImg .texteAccueil {
+  position: absolute;
+  top: 40%;
+  left: 1rem;
 }
 #h1Accueil {
   font-size: 3rem;
   font-family: "Lato-black", Arial, Helvetica, sans-serif;
   margin-right: 3rem;
   margin-left: 1rem;
+  color: var(--color-six);
 }
 h2 {
   margin-right: 3rem;
@@ -31,7 +40,7 @@ h2 {
 .typing span {
   position: relative;
   font-size: 1.3rem;
-  color: var(--color-two-dark);
+  color: var(--color-one);
 }
 .typing span::before {
   content: "";
@@ -40,7 +49,7 @@ h2 {
   position: absolute;
   height: 30px;
   width: 2px;
-  background-color: var(--color-two-dark);
+  background-color: var(--color-one);
   transform: translateY(-45%);
   animation: blink 0.7s infinite;
 }
@@ -49,12 +58,14 @@ h2 {
   animation: none;
 }
 
-
-
 @keyframes blink {
   50% {
     opacity: 0;
   }
+}
+
+.enteteImg .fleche {
+  display: none;
 }
 
 /*descriptif*/
@@ -79,9 +90,28 @@ h2 {
 @media screen and (min-width: 576px) {
   .enteteImg {
     padding-bottom: 0;
+    height: 80vh;
+
   }
-  .enteteImg div {
-    margin-left: 14rem;
+  .enteteImg .texteAccueil {
+    width: 30rem;
+    left: 50%;
   }
+  .enteteImg .fleche {
+    position: absolute;
+    display: block;
+    text-align: center;
+    bottom: 1rem;
+    left: 50%;
+  }
+  .enteteImg .fleche i {
+    font-size: 4rem;
+  }
+
+  /* descriptif*/
+  #descriptif {
+    padding-top: 5.5rem;
+  }
+
   /*fin responsive*/
 }

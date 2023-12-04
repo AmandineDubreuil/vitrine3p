@@ -14,24 +14,28 @@
 	<link rel="stylesheet" href="{{asset('./assets/css/homeStyle.css')}}">
 
 {% endblock %}
-
+{# style="background-image: url('{{asset('./assets/img/formationSSTLight.jpg')| imagine_filter('scaleAccueil')}}" #}
 
 {% block body %}
 
 	<section class="entete premieresection">
-		<div class="enteteImg" style="background-image: url('{{asset('./assets/img/accueil.jpeg')| imagine_filter('scaleAccueil')}}">
-			<div>
+		<div class="enteteImg">
+			{# <div class="imageAccueil"> #}
+				<img src="{{asset('./assets/img/formationSSTLight.jpg')| imagine_filter('scaleAccueil')}}" alt="">
+			{# </div> #}
+			<div class="texteAccueil">
 				<h1 id="h1Accueil">Vitrine3p</h1>
-				<h2 class="typing">Nous sommes <span></span>
+				<h2 class="typing">Nous sommes
+					<span></span>
 				</h2>
-
 			</div>
+			<div class="fleche"><a href="#descriptif"><i class="fa-solid fa-circle-arrow-down"></i></a></div>
 		</div>
 
 	</section>
-	<section class="descriptif">
+	<section id="descriptif" class="descriptif">
 		<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima facere cumque veniam quisquam eligendi, est molestiae possimus voluptate aliquam dolores rem corrupti modi aut delectus nam necessitatibus, et dignissimos commodi?</p>
-		<div class="dfRight">
+		<div class="dfCenter">
 			<a class="btnOk" href="{{ path('app_formations_index') }}">Découvrir nos formations</a>
 		</div>
 		<div class="paragraphe">
@@ -84,6 +88,9 @@
 	</section>
 
 {% endblock %}
-		{% block javascripts %}
-			<script src="{{asset('./assets/js/typingHome.js')}}"></script>
-		{% endblock %}
+{% block javascripts %}
+	<script src="{{asset('./assets/js/typingHome.js')}}"></script>
+	<script src="{{asset('./assets/js/menu.js')}}"></script>
+	<script src="{{asset('./assets/js/modaleContact.js')}}"></script>
+
+{% endblock %}

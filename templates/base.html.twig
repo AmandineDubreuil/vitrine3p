@@ -23,8 +23,8 @@
 	</head>
 	<body>
 		{# **************
-		modale contact 
-		*****************#}
+								modale contact 
+								*****************#}
 
 		<div class="modal-container">
 			<div class="overlay modal-trigger"></div>
@@ -69,13 +69,13 @@
 		</div>
 
 		{# **************
-		header 
-		*****************#}
+								header 
+								*****************#}
 
 		<header
 			class="menu">
 			{# <a href="{{path('app_contact')}}" class="btnEdit contact">Contact</a> #}
-			<button class="contact btnEdit modal-trigger modal-btn">Contact</button>
+			<button class="contact btnAdd modal-trigger modal-btn">Contact</button>
 			<div class="navbar-fixed">
 				<nav class="navbar">
 					<div class="navbar-head">
@@ -94,19 +94,17 @@
 							<a class="navbar-link" href="{{path('app_home')}}">Accueil</a>
 						</li>
 						<li>
-							<a class="navbar-link" href="{{path('app_equipes_index')}}">Equipe</a>
+							<a class="navbar-link" href="{{path('app_formations_index')}}">Formations</a>
 						</li>
 						<li>
-							<a class="navbar-link" href="{{path('app_formations_index')}}">Formations</a>
+							<a class="navbar-link" href="{{path('app_equipes_index')}}">Equipe</a>
 						</li>
 
 
 						{% if is_granted('ROLE_ADMIN') %}
 							<li>
 								<a class="navbar-link" href="{{path('admin')}}">
-									<i class="fa-solid fa-file-shield"></i>
-									<span>
-										Admin</span>
+									Admin
 								</a>
 							</li>
 						{% endif %}
@@ -119,8 +117,8 @@
 			</div>
 
 			{# **************
-																									message flash 
-																							*****************#}
+																																		message flash 
+																																*****************#}
 
 			{% include "_partials/_flash.html.twig" %}
 			{% if app.user and app.user.isverified == false %}
@@ -133,16 +131,16 @@
 			{% endif %}
 		</header>
 		{# **************
-																		main 
-																*****************#}
+																								main 
+																						*****************#}
 
 		<main>
 			{% block body %}{% endblock %}
 		</main>
 
 		{# **************
-																		footer 
-																*****************#}
+																								footer 
+																						*****************#}
 		<footer>
 			<p>Copyright © 2023 - Vitrine3p</p>
 			<div>

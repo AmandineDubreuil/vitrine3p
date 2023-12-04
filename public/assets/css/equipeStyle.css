@@ -13,7 +13,7 @@
 }
 
 .collaborateurs .collaborateur .imageRond {
-  width: 40%;
+  width: 50%;
   margin: auto;
 }
 /* *********************** 
@@ -42,6 +42,7 @@
   .collaborateurs .collaborateur .imageRond {
     margin: 1rem;
     width: 40rem;
+    max-width: 23%;
   }
   /*fin responsive*/
 }
