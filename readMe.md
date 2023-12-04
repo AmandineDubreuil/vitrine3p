@@ -5,7 +5,7 @@ Vitrine3p est un site internet promouvant des formations professionnelles. C'est
 ## Requirements
 
 - PHP 8.2
-- Symfony 6.3.5
+- Symfony 6.4
 - MySql
 
 - EasyAdminBundle 4
